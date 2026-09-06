@@ -1,0 +1,378 @@
+export type Language = "EN" | "HI" | "MR";
+
+export const translations = {
+  EN: {
+    // Navigation
+    home: "Home",
+    ledger: "Ledger",
+    profile: "Profile",
+    newLot: "New Lot",
+    back: "Back",
+    continue: "Continue",
+    cancel: "Cancel",
+
+    // Header & Offline
+    appTitle: "RecyConnect",
+    offlineNotice: "Offline — will sync when connected",
+    onlineNotice: "Connected",
+
+    // Home Screen
+    welcomeBack: "Welcome back",
+    logNewLotTitle: "Sell E-Waste Scrap",
+    logNewLotSubtitle: "Get up to +60% formal market rates",
+    startNewLotBtn: "+ Create New Scrap Lot",
+    safetyTipsHeading: "Field Safety Guidelines",
+    ledgerShortcutTitle: "Pending Payout",
+    viewLedgerBtn: "View Ledger History",
+    paidBalance: "Total Paid",
+    activeLotsTitle: "Active Lots In Handover",
+    noActiveLots: "No active lots. Tap above to create your first lot.",
+
+    // Safety Tips
+    safetyTip1: "Never burn cables or open battery casings by hand. Toxic fumes harm lungs.",
+    safetyTip2: "Wear heavy leather gloves when handling shattered CRT glass & sharp chassis.",
+    safetyTip3: "Keep lithium battery packs in dry, shaded containers away from water & heat.",
+    safetyTip4: "Separate copper cables from mixed plastic for the highest payout multiplier.",
+
+    // Material Categories
+    cat_PCB: "Circuit Boards (PCB)",
+    cat_PCB_desc: "Motherboards, server cards & RAM IC boards",
+    cat_BATTERY: "Batteries",
+    cat_BATTERY_desc: "Lead-acid, UPS batteries & Li-ion packs",
+    cat_CABLE: "Copper Cables",
+    cat_CABLE_desc: "Wiring harnesses, appliance cords & copper lines",
+    cat_CRT_LCD: "CRT & LCD Panels",
+    cat_CRT_LCD_desc: "Computer monitors, TV glass & laptop screens",
+    cat_MOTOR_MAGNET: "Motors & Magnets",
+    cat_MOTOR_MAGNET_desc: "Hard drive magnets, alternator coils & motors",
+    cat_MIXED_PLASTIC: "Mixed E-Plastic",
+    cat_MIXED_PLASTIC_desc: "ABS printer casings & computer housing",
+
+    // Step 1: Category Select
+    selectCategoryTitle: "Select Material Category",
+    selectCategorySubtitle: "What kind of e-waste scrap are you selling today?",
+
+    // Step 2: Weight Entry
+    enterWeightTitle: "Enter Weight",
+    enterWeightSubtitle: "Slide to adjust estimated lot weight in kilograms",
+    weightUnit: "kg",
+    slideHint: "Estimated lot scale reading (1 to 40 kg)",
+
+    // Step 3: Price Comparison Screen (Headline)
+    valueComparisonTitle: "Instant Price Comparison",
+    valueComparisonSubtitle: "Why formal recyclers pay more than local middlemen",
+    informalCardTitle: "Local Scrap Dealer",
+    informalCardSubtitle: "Informal unregistered scrap mandi rate",
+    formalCardTitle: "Formal Recycler · Verified",
+    formalCardSubtitle: "Government authorized recycling facility rate",
+    perKg: "/kg",
+    estimatedTotal: "Estimated Total",
+    gainBadge: "Higher Return",
+    extraEarningsText: "Extra money in your pocket by choosing authorized channels",
+    chooseRecyclerBtn: "Select Recycler & Schedule Handover",
+
+    // Step 4: Recycler Match
+    matchRecyclerTitle: "Select Authorized Recycler",
+    matchRecyclerSubtitle: "Ranked by distance and offered bonus rate",
+    pickupAvailable: "Doorstep Pickup Available",
+    dropoffOnly: "Direct Drop-off Only",
+    bonusRate: "rate bonus",
+    selectAndConfirm: "Confirm Handover to Recycler",
+
+    // Step 5: Handover Screen
+    handoverTitle: "Lot Handover Verification",
+    handoverSubtitle: "Show this QR code to the collection van or at facility gate",
+    lotReference: "Handover Reference",
+    fallbackOtpTitle: "Or share this one-time code",
+    markHandedOverBtn: "Mark as Handed Over",
+    handoverSuccessTitle: "Handover Recorded Successfully!",
+    handoverSuccessDesc: "Your lot is now marked as HANDED OVER. Recycler will verify weighment and release payment.",
+    viewInLedgerBtn: "Go to Ledger",
+    createNewLotBtn: "Log Another Lot",
+
+    // Ledger Screen
+    ledgerTitle: "Scrap Ledger",
+    ledgerSubtitle: "All logged transactions & payment receipts",
+    status_QUOTED: "Quoted",
+    status_MATCHED: "Matched",
+    status_HANDED_OVER: "Handed Over",
+    status_VERIFIED: "Weighed & Verified",
+    status_COMPLETED: "Completed",
+    payment_PENDING: "Payment Pending",
+    payment_PAID: "Paid to UPI/Cash",
+
+    // Profile Screen
+    profileTitle: "Collector Profile",
+    collectorId: "Collector ID",
+    mobileNumber: "Mobile Number",
+    operatingLocation: "Primary Operating Mandi",
+    languageSetting: "Language Selection",
+    environmentalImpactTitle: "Your Environmental Impact",
+    toxicLeadPrevented: "Toxic Lead Diverted",
+    co2EmissionsSaved: "CO₂ Emissions Avoided",
+    logoutBtn: "Log Out of Field App",
+
+    // Collector Login Screen
+    loginTitle: "Scrap Collector Login",
+    loginSubtitle: "Sign in with your mobile phone number",
+    enterPhone: "Enter Mobile Number",
+    enterPhoneSubtitle: "Enter your 10-digit mobile number to receive OTP",
+    phoneLabel: "Mobile Number",
+    sendOtpBtn: "Send OTP",
+    enterOtp: "Enter 4-Digit OTP",
+    enterOtpSubtitle: "Enter verification code sent to your phone",
+    verifyBtn: "Verify & Enter App",
+    demoOtpNotice: "For demo, any 10-digit number + code 4912 works.",
+    quickDemoAccounts: "Quick demo accounts:",
+  },
+
+  HI: {
+    // Navigation
+    home: "होम",
+    ledger: "खाता बही",
+    profile: "प्रोफ़ाइल",
+    newLot: "नया लॉट",
+    back: "पीछे",
+    continue: "आगे बढ़ें",
+    cancel: "रद्द करें",
+
+    // Header & Offline
+    appTitle: "रीसाइकनेक्ट",
+    offlineNotice: "ऑफ़लाइन — इंटरनेट आने पर सिंक होगा",
+    onlineNotice: "इंटरनेट कनेक्टेड",
+
+    // Home Screen
+    welcomeBack: "नमस्ते",
+    logNewLotTitle: "ई-कचरा स्क्रैप बेचें",
+    logNewLotSubtitle: "सामान्य कबाड़ी से +60% तक अधिक दाम पाएं",
+    startNewLotBtn: "+ नया स्क्रैप लॉट जोड़ें",
+    safetyTipsHeading: "सुरक्षा एवं बचाव नियम",
+    ledgerShortcutTitle: "बकाया भुगतान",
+    viewLedgerBtn: "खाता बही देखें",
+    paidBalance: "कुल प्राप्त राशि",
+    activeLotsTitle: "सक्रिय लॉट (हैंडओवर में)",
+    noActiveLots: "कोई सक्रिय लॉट नहीं है। नया लॉट जोड़ने के लिए ऊपर टैप करें।",
+
+    // Safety Tips
+    safetyTip1: "केबलों को कभी न जलाएं और बैटरियों को हाथ से न खोलें। जहरीला धुआं फेफड़ों को नुकसान पहुंचाता है।",
+    safetyTip2: "टूटे हुए सीआरटी मॉनिटर और नुकीले स्क्रैप को छूते समय मोटे चमड़े के दस्ताने पहनें।",
+    safetyTip3: "लिथियम बैटरी को पानी और तेज धूप से दूर सूखी और ठंडी जगह पर रखें।",
+    safetyTip4: "ज्यादा दाम पाने के लिए तांबे के तार को प्लास्टिक से अलग करके बेचें।",
+
+    // Material Categories
+    cat_PCB: "सर्किट बोर्ड (PCB)",
+    cat_PCB_desc: "मदरबोर्ड, सर्वर कार्ड और रैम आईसी बोर्ड",
+    cat_BATTERY: "बैटरियां",
+    cat_BATTERY_desc: "लेड-एसिड, यूपीएस बैटरी और मोबाइल लिथियम सेल",
+    cat_CABLE: "तांबे के तार और केबल",
+    cat_CABLE_desc: "बिजली के तार, केबल बंडल और कॉपर वायर",
+    cat_CRT_LCD: "मॉनिटर व स्क्रीन (CRT/LCD)",
+    cat_CRT_LCD_desc: "कंप्यूटर मॉनिटर, टीवी स्क्रीन और लैपटॉप डिस्प्ले",
+    cat_MOTOR_MAGNET: "मोटर व चुंबक",
+    cat_MOTOR_MAGNET_desc: "हार्ड डिस्क मैग्नेट, अल्टरनेटर कॉइल और छोटी मोटर",
+    cat_MIXED_PLASTIC: "मिश्रित ई-प्लास्टिक",
+    cat_MIXED_PLASTIC_desc: "प्रिंटर कवर, सीपीयू कैबिनेट और प्लास्टिक बॉडी",
+
+    // Step 1: Category Select
+    selectCategoryTitle: "कचरे की श्रेणी चुनें",
+    selectCategorySubtitle: "आज आप कौन सा ई-कचरा बेच रहे हैं?",
+
+    // Step 2: Weight Entry
+    enterWeightTitle: "अनुमानित वजन दर्ज करें",
+    enterWeightSubtitle: "स्लाइडर को हिलाकर किलोग्राम में वजन सेट करें",
+    weightUnit: "किग्रा",
+    slideHint: "अनुमानित वजन पैमाना (1 से 40 किग्रा)",
+
+    // Step 3: Price Comparison Screen (Headline)
+    valueComparisonTitle: "तुरंत मूल्य तुलना",
+    valueComparisonSubtitle: "अधिकृत रीसाइक्लर स्थानीय कबाड़ी से अधिक दाम क्यों देते हैं",
+    informalCardTitle: "स्थानीय कबाड़ी",
+    informalCardSubtitle: "सामान्य कबाड़ी मंडी का अनुमानित भाव",
+    formalCardTitle: "अधिकृत रीसाइक्लर · सत्यापित",
+    formalCardSubtitle: "सरकारी मान्यता प्राप्त रीसाइक्लिंग प्लांट का रेट",
+    perKg: "/किग्रा",
+    estimatedTotal: "कुल अनुमानित मूल्य",
+    gainBadge: "अधिक मुनाफा",
+    extraEarningsText: "अधिकृत केंद्र पर बेचने से सीधे आपकी जेब में अतिरिक्त कमाई",
+    chooseRecyclerBtn: "रीसाइक्लर चुनें और हैंडओवर तय करें",
+
+    // Step 4: Recycler Match
+    matchRecyclerTitle: "अधिकृत रीसाइक्लर चुनें",
+    matchRecyclerSubtitle: "निकटतम दूरी और सबसे अच्छे रेट के आधार पर क्रमबद्ध",
+    pickupAvailable: "घर या दुकान से पिकअप उपलब्ध",
+    dropoffOnly: "सीधे केंद्र पर जमा करें",
+    bonusRate: "अतिरिक्त बोनस रेट",
+    selectAndConfirm: "रीसाइक्लर को हैंडओवर कन्फर्म करें",
+
+    // Step 5: Handover Screen
+    handoverTitle: "लॉट हैंडओवर सत्यापन",
+    handoverSubtitle: "यह क्यूआर कोड पिकअप वैन ड्राइवर या गेट पर दिखाएं",
+    lotReference: "हैंडओवर संदर्भ कोड",
+    fallbackOtpTitle: "या यह 4 अंकों का गुप्त कोड बताएं",
+    markHandedOverBtn: "हैंडओवर पूरा करें",
+    handoverSuccessTitle: "हैंडओवर सफलतापूर्वक दर्ज हुआ!",
+    handoverSuccessDesc: "आपका लॉट हैंडओवर हो गया है। वजन चेक होते ही भुगतान खाते में भेज दिया जाएगा।",
+    viewInLedgerBtn: "खाता बही देखें",
+    createNewLotBtn: "एक और लॉट जोड़ें",
+
+    // Ledger Screen
+    ledgerTitle: "कचरा बिक्री हिसाब बही",
+    ledgerSubtitle: "आपके सभी बेचे गए लॉट और भुगतान की रसीदें",
+    status_QUOTED: "कोट किया गया",
+    status_MATCHED: "रीसाइक्लर तय",
+    status_HANDED_OVER: "हैंडओवर हुआ",
+    status_VERIFIED: "वजन सत्यापित",
+    status_COMPLETED: "भुगतान पूर्ण",
+    payment_PENDING: "भुगतान प्रक्रिया में",
+    payment_PAID: "खाते या नकद में प्राप्त",
+
+    // Profile Screen
+    profileTitle: "कलेक्टर प्रोफ़ाइल",
+    collectorId: "कलेक्टर पहचान संख्या",
+    mobileNumber: "मोबाइल नंबर",
+    operatingLocation: "कार्य क्षेत्र मंडी",
+    languageSetting: "भाषा चयन",
+    environmentalImpactTitle: "पर्यावरण में आपका योगदान",
+    toxicLeadPrevented: "सुरक्षित निपटाया गया जहरीला सीसा",
+    co2EmissionsSaved: "कार्बन उत्सर्जन की बचत",
+    logoutBtn: "लॉग आउट करें",
+
+    // Collector Login Screen
+    loginTitle: "स्क्रैप संग्रहकर्ता लॉगिन",
+    loginSubtitle: "अपने मोबाइल नंबर से साइन इन करें",
+    enterPhone: "मोबाइल नंबर दर्ज करें",
+    enterPhoneSubtitle: "ओटीपी प्राप्त करने के लिए 10 अंकों का मोबाइल नंबर दर्ज करें",
+    phoneLabel: "मोबाइल नंबर",
+    sendOtpBtn: "ओटीपी भेजें",
+    enterOtp: "4 अंकों का ओटीपी दर्ज करें",
+    enterOtpSubtitle: "अपने फोन पर भेजा गया सत्यापन कोड दर्ज करें",
+    verifyBtn: "सत्यापित करें और आगे बढ़ें",
+    demoOtpNotice: "डेमो के लिए कोई भी 10 अंकों का नंबर + कोड 4912 काम करेगा।",
+    quickDemoAccounts: "त्वरित डेमो खाते:",
+  },
+
+  MR: {
+    // Navigation
+    home: "मुख्यपृष्ठ",
+    ledger: "हिशोब वही",
+    profile: "प्रोफाइल",
+    newLot: "नवीन लॉट",
+    back: "मागे",
+    continue: "पुढे जा",
+    cancel: "रद्द करा",
+
+    // Header & Offline
+    appTitle: "RecyConnect",
+    offlineNotice: "ऑफलाइन — इंटरनेट सुरू झाल्यावर सिंक होईल",
+    onlineNotice: "इंटरनेट कनेक्ट झाले",
+
+    // Home Screen
+    welcomeBack: "स्वागत आहे",
+    logNewLotTitle: "ई-कचरा स्क्रॅप विका",
+    logNewLotSubtitle: "अधिकृत बाजारातून +६०% पर्यंत जास्त दर मिळवा",
+    startNewLotBtn: "+ नवीन स्क्रॅप लॉट नोंदवा",
+    safetyTipsHeading: "सुरक्षा व बचाव मार्गदर्शक तत्वे",
+    ledgerShortcutTitle: "प्रलंबित रक्कम",
+    viewLedgerBtn: "हिशोब वही पहा",
+    paidBalance: "एकूण जमा रक्कम",
+    activeLotsTitle: "सक्रिय लॉट (हस्तांतरणात)",
+    noActiveLots: "कोणताही सक्रिय लॉट नाही. नवीन लॉट नोंदवण्यासाठी वरील बटण दाबा.",
+
+    // Safety Tips
+    safetyTip1: "केबल्स कधीही जाळू नका किंवा बॅटरी हाताने उघडू नका. विषारी धूर फुफ्फुसांना हानी पोहोचवतो.",
+    safetyTip2: "तुटलेल्या सीआरटी काच व तीक्ष्ण स्क्रॅप हाताळताना जाड चामड्याचे हातमोजे वापरा.",
+    safetyTip3: "लिथियम बॅटरी पाण्याच्या संपर्कापासून दूर, सावलीत व कोरड्या जागेत ठेवा.",
+    safetyTip4: "जास्त दर मिळवण्यासाठी तांब्याची वायर प्लास्टिकपासून वेगळी करा.",
+
+    // Material Categories
+    cat_PCB: "सर्किट बोर्ड (PCB)",
+    cat_PCB_desc: "मदरबोर्ड, सर्व्हर कार्ड्स व रॅम आयसी बोर्ड",
+    cat_BATTERY: "बॅटऱ्या",
+    cat_BATTERY_desc: "लेड-अ‍ॅसिड, यूपीएस बॅटरी व लिथियम सेल",
+    cat_CABLE: "तांब्याच्या केबल्स",
+    cat_CABLE_desc: "विद्युत वायरिंग, उपकरणांच्या वायर्स व कॉपर लाइन्स",
+    cat_CRT_LCD: "सीआरटी व एलसीडी पॅनेल",
+    cat_CRT_LCD_desc: "कॉम्प्युटर मॉनिटर, टीव्ही स्क्रीन व लॅपटॉप डिस्प्ले",
+    cat_MOTOR_MAGNET: "मोटर्स व चुंबक",
+    cat_MOTOR_MAGNET_desc: "हार्ड ड्राईव्ह मॅग्नेट्स, अल्टरनेटर कॉइल व मोटर्स",
+    cat_MIXED_PLASTIC: "मिश्रित ई-प्लास्टिक",
+    cat_MIXED_PLASTIC_desc: "प्रिंटर कव्हर, सीपीयू कॅबिनेट व प्लास्टिक बॉडी",
+
+    // Step 1: Category Select
+    selectCategoryTitle: "कचऱ्याचा प्रकार निवडा",
+    selectCategorySubtitle: "आज आपण कोणता ई-कचरा विकत आहात?",
+
+    // Step 2: Weight Entry
+    enterWeightTitle: "अंदाजे वजन नोंदवा",
+    enterWeightSubtitle: "स्लायडर वापरून वजन किलोग्रॅममध्ये निश्चित करा",
+    weightUnit: "किलो",
+    slideHint: "अंदाजे वजनाचे प्रमाण (१ ते ४० किलो)",
+
+    // Step 3: Price Comparison Screen (Headline)
+    valueComparisonTitle: "त्वरित दर तुलना",
+    valueComparisonSubtitle: "स्थानिक दलालांपेक्षा अधिकृत रिसायकलर्स जास्त मोबदला का देतात",
+    informalCardTitle: "स्थानिक भंगार विक्रेता",
+    informalCardSubtitle: "अनधिकृत स्थानिक भंगार बाजाराचा दर",
+    formalCardTitle: "अधिकृत रिसायकलर · सत्यापित",
+    formalCardSubtitle: "शासकीय मान्यताप्राप्त रिसायकलिंग युनिटचा दर",
+    perKg: "/किलो",
+    estimatedTotal: "एकूण अंदाजे रक्कम",
+    gainBadge: "जास्त नफा",
+    extraEarningsText: "अधिकृत केंद्राची निवड केल्यामुळे थेट तुमच्या खात्यात जास्त नफा",
+    chooseRecyclerBtn: "रिसायकलर निवडा व वेळ ठरवा",
+
+    // Step 4: Recycler Match
+    matchRecyclerTitle: "अधिकृत रिसायकलर निवडा",
+    matchRecyclerSubtitle: "कमी अंतर आणि सर्वोत्तम बोनस दरावर आधारित",
+    pickupAvailable: "घरोघरी पिकअप उपलब्ध",
+    dropoffOnly: "थेट केंद्रावर जमा करा",
+    bonusRate: "अतिरिक्त बोनस दर",
+    selectAndConfirm: "हस्तांतरण निश्चित करा",
+
+    // Step 5: Handover Screen
+    handoverTitle: "लॉट हस्तांतरण पडताळणी",
+    handoverSubtitle: "हा क्यूआर कोड पिकअप व्हॅन चालक किंवा केंद्राच्या प्रवेशद्वारावर दाखवा",
+    lotReference: "हस्तांतरण संदर्भ क्रमांक",
+    fallbackOtpTitle: "किंवा हा ४-अंकी ओटीपी सांगा",
+    markHandedOverBtn: "हस्तांतरित म्हणून नोंद करा",
+    handoverSuccessTitle: "हस्तांतरण यशस्वीरित्या नोंदवले गेले!",
+    handoverSuccessDesc: "आपला लॉट हस्तांतरित झाला आहे. वजनाची तपासणी होताच रक्कम पाठवली जाईल.",
+    viewInLedgerBtn: "हिशोब वही पहा",
+    createNewLotBtn: "दुसरा लॉट नोंदवा",
+
+    // Ledger Screen
+    ledgerTitle: "स्क्रॅप हिशोब वही",
+    ledgerSubtitle: "नोंदवलेले सर्व व्यवहार आणि पावत्या",
+    status_QUOTED: "दर निश्चित",
+    status_MATCHED: "रिसायकलर निवडला",
+    status_HANDED_OVER: "हस्तांतरित",
+    status_VERIFIED: "वजन तपासले",
+    status_COMPLETED: "पूर्ण",
+    payment_PENDING: "रक्कम येणे बाकी",
+    payment_PAID: "रक्कम जमा झाली",
+
+    // Profile Screen
+    profileTitle: "संकलक प्रोफाइल",
+    collectorId: "संकलक ओळख क्रमांक",
+    mobileNumber: "मोबाइल क्रमांक",
+    operatingLocation: "मुख्य कार्यक्षेत्र",
+    languageSetting: "भाषा निवड",
+    environmentalImpactTitle: "पर्यावरणातील तुमचे योगदान",
+    toxicLeadPrevented: "घातक शिसे विल्हेवाट",
+    co2EmissionsSaved: "कार्बन उत्सर्जन बचत",
+    logoutBtn: "लॉग आउट करा",
+
+    // Collector Login Screen
+    loginTitle: "स्क्रॅप संकलक लॉगिन",
+    loginSubtitle: "आपल्या मोबाइल क्रमांकाने साइन इन करा",
+    enterPhone: "मोबाइल क्रमांक प्रविष्ट करा",
+    enterPhoneSubtitle: "ओटीपी मिळवण्यासाठी आपला 10 अंकी मोबाइल क्रमांक प्रविष्ट करा",
+    phoneLabel: "मोबाइल क्रमांक",
+    sendOtpBtn: "ओटीपी पाठवा",
+    enterOtp: "4-अंकी ओटीपी प्रविष्ट करा",
+    enterOtpSubtitle: "आपल्या फोनवर पाठवलेला पडताळणी कोड प्रविष्ट करा",
+    verifyBtn: "पडताळणी करा आणि पुढे जा",
+    demoOtpNotice: "डेमोसाठी कोणताही 10 अंकी क्रमांक + कोड 4912 चालेल.",
+    quickDemoAccounts: "त्वरित डेमो खाती:",
+  },
+};

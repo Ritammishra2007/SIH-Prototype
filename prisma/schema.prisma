@@ -1,0 +1,109 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Material {
+  id             String   @id @default(cuid())
+  category       String   // PCB, BATTERY, CABLE, CRT_LCD, MOTOR_MAGNET, MIXED_PLASTIC
+  description    String
+  imageUrl       String?
+  weightKg       Float
+  condition      String
+  sourceType     String
+  estimatedValue Float
+  createdAt      DateTime @default(now())
+}
+
+model Price {
+  id                 String    @id @default(cuid())
+  materialCategory   String    // PCB, BATTERY, CABLE, CRT_LCD, MOTOR_MAGNET, MIXED_PLASTIC
+  location           String
+  date               DateTime  @default(now())
+  informalPricePerKg Float
+  formalPricePerKg   Float
+  unit               String    @default("kg")
+  recyclerId         String?
+  recycler           Recycler? @relation(fields: [recyclerId], references: [id])
+  createdAt          DateTime  @default(now())
+}
+
+model Recycler {
+  id                    String        @id @default(cuid())
+  name                  String
+  location              String
+  latitude              Float
+  longitude             Float
+  materialsAccepted     String        // JSON array string e.g. '["PCB", "BATTERY"]'
+  authorizationStatus   String        @default("PENDING") // AUTHORIZED, PENDING, REVOKED
+  registrationNumber    String        @unique
+  contactPhone          String
+  contactEmail          String
+  offeredRateMultiplier Float         @default(1.0)
+  pickupAvailable       Boolean       @default(false)
+  serviceAreaKm         Float         @default(15.0)
+  passwordHash          String
+  transactions          Transaction[]
+  prices                Price[]
+  createdAt             DateTime      @default(now())
+  updatedAt             DateTime      @updatedAt
+}
+
+model Transaction {
+  id                 String        @id @default(cuid())
+  lotId              String        @unique // Unique human-readable e.g. "L-0091"
+  collectorId        String
+  collector          Collector     @relation(fields: [collectorId], references: [id])
+  materialCategory   String        // PCB, BATTERY, CABLE, CRT_LCD, MOTOR_MAGNET, MIXED_PLASTIC
+  weightKg           Float
+  quotedValue        Float
+  finalValue         Float?
+  recyclerId         String?
+  recycler           Recycler?     @relation(fields: [recyclerId], references: [id])
+  collectionLocation String
+  handoverLocation   String?
+  paymentStatus      String        @default("PENDING") // PENDING, PAID
+  transactionStatus  String        @default("QUOTED") // QUOTED, MATCHED, HANDED_OVER, VERIFIED, COMPLETED
+  traceability       Traceability?
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+}
+
+model Traceability {
+  id                  String      @id @default(cuid())
+  transactionId       String      @unique
+  transaction         Transaction @relation(fields: [transactionId], references: [id], onDelete: Cascade)
+  photoUrls           String      // JSON array string of photo URLs
+  weightKg            Float
+  timestampAtPickup   DateTime    @default(now())
+  latitude            Float
+  longitude           Float
+  handoverReference   String      @unique
+  recyclerConfirmedAt DateTime?
+  otpCode             String
+  createdAt           DateTime    @default(now())
+}
+
+model Collector {
+  id                String        @id @default(cuid())
+  name              String?
+  phone             String        @unique
+  preferredLanguage String        @default("HI") // EN, HI
+  generalLocation   String
+  passwordHash      String?       // Nullable since collectors log in via OTP
+  transactions      Transaction[]
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+}
+
+model AdminUser {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String   @default("CPCB Officer")
+  password  String
+  createdAt DateTime @default(now())
+}
