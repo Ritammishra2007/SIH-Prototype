@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CollectorTopBar } from "@/components/collector/CollectorTopBar";
 import { useLanguage } from "@/context/LanguageContext";
 import { QRCodeSVG } from "qrcode.react";
@@ -10,7 +10,9 @@ import {
   QrCode,
   X,
   ChevronRight,
+  WifiOff,
 } from "lucide-react";
+import { getPendingLots, syncPendingLots } from "@/lib/offline-store";
 
 interface TransactionItem {
   id: string;
@@ -30,6 +32,7 @@ interface TransactionItem {
     handoverReference: string;
     otpCode: string;
   } | null;
+  isOfflinePending?: boolean;
 }
 
 export function CollectorLedgerClient({
@@ -40,18 +43,73 @@ export function CollectorLedgerClient({
   const { t, tStatus, tCategory, tPayment } = useLanguage();
   const [filter, setFilter] = useState<"ALL" | "PENDING" | "PAID">("ALL");
   const [selectedTx, setSelectedTx] = useState<TransactionItem | null>(null);
+  const [offlineLots, setOfflineLots] = useState<TransactionItem[]>([]);
 
-  const filtered = transactions.filter((tx) => {
+  const loadOffline = async () => {
+    try {
+      const pending = await getPendingLots();
+      const mapped: TransactionItem[] = pending.map((l) => ({
+        id: l.localId,
+        lotId: l.tempLotId,
+        materialCategory: l.materialCategory,
+        weightKg: l.weightKg,
+        quotedValue: l.quotedValue,
+        finalValue: null,
+        paymentStatus: "PENDING",
+        transactionStatus: l.transactionStatus,
+        createdAt: l.createdAt,
+        recycler: {
+          name: l.recyclerName,
+          location: "Designated Recycler Depot",
+        },
+        traceability: {
+          handoverReference: l.handoverReference,
+          otpCode: l.otpCode,
+        },
+        isOfflinePending: true,
+      }));
+      setOfflineLots(mapped);
+    } catch {
+      // IndexedDB not ready
+    }
+  };
+
+  useEffect(() => {
+    loadOffline();
+    // Also attempt a background sync if online
+    syncPendingLots();
+
+    const onSync = () => loadOffline();
+    const onCreated = () => loadOffline();
+    const onOnline = () => {
+      syncPendingLots();
+      loadOffline();
+    };
+
+    window.addEventListener("recyconnect:synced", onSync);
+    window.addEventListener("recyconnect:offlinelot_created", onCreated);
+    window.addEventListener("online", onOnline);
+
+    return () => {
+      window.removeEventListener("recyconnect:synced", onSync);
+      window.removeEventListener("recyconnect:offlinelot_created", onCreated);
+      window.removeEventListener("online", onOnline);
+    };
+  }, []);
+
+  const allLots = [...offlineLots, ...transactions];
+
+  const filtered = allLots.filter((tx) => {
     if (filter === "PENDING") return tx.paymentStatus === "PENDING";
     if (filter === "PAID") return tx.paymentStatus === "PAID";
     return true;
   });
 
-  const totalValue = transactions.reduce(
+  const totalValue = allLots.reduce(
     (sum, t) => sum + (t.finalValue || t.quotedValue),
     0
   );
-  const pendingValue = transactions
+  const pendingValue = allLots
     .filter((t) => t.paymentStatus === "PENDING")
     .reduce((sum, t) => sum + (t.finalValue || t.quotedValue), 0);
 
@@ -135,15 +193,22 @@ export function CollectorLedgerClient({
                           <span className="text-xs font-bold text-slate-900">
                             {tx.lotId}
                           </span>
-                          <span
-                            className={`text-[9px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider ${
-                              isCompleted
-                                ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
-                                : "bg-blue-50 text-blue-700 border border-blue-200"
-                            }`}
-                          >
-                            {tStatus(tx.transactionStatus)}
-                          </span>
+                          {tx.isOfflinePending ? (
+                            <span className="text-[9px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider bg-amber-100 text-amber-800 border border-amber-300 flex items-center gap-1">
+                              <WifiOff className="w-2.5 h-2.5" />
+                              {t("pendingSyncBadge")}
+                            </span>
+                          ) : (
+                            <span
+                              className={`text-[9px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider ${
+                                isCompleted
+                                  ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                                  : "bg-blue-50 text-blue-700 border border-blue-200"
+                              }`}
+                            >
+                              {tStatus(tx.transactionStatus)}
+                            </span>
+                          )}
                         </div>
                         <p className="text-xs font-medium text-slate-600 mt-0.5">
                           {tCategory(tx.materialCategory)} • {tx.weightKg} {t("weightUnit")}
@@ -210,6 +275,13 @@ export function CollectorLedgerClient({
                 <X className="w-4 h-4" />
               </button>
             </div>
+
+            {selectedTx.isOfflinePending && (
+              <div className="p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-[11px] text-amber-800 flex items-center gap-2">
+                <WifiOff className="w-4 h-4 text-amber-600 shrink-0" />
+                <span>{t("offlineCreatedNotice")}</span>
+              </div>
+            )}
 
             {/* QR Code */}
             <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-center inline-block w-full">

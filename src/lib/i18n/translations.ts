@@ -18,6 +18,10 @@ export const translations = {
     onlineNotice: "Connected",
     nationalCircularityPortal: "National Circularity Portal",
     cpcbVerified: "CPCB Verified",
+    pendingSyncBadge: "Pending Sync (Offline)",
+    offlineCreatedNotice: "Saved offline! Automatically uploads to CPCB when internet returns.",
+    syncedNotice: "All offline lots synced successfully to CPCB",
+    pendingLotsNotice: "lot(s) saved offline • syncing on reconnect",
 
     // Home Screen
     welcomeBack: "Welcome back",
@@ -211,6 +215,10 @@ export const translations = {
     onlineNotice: "इंटरनेट कनेक्टेड",
     nationalCircularityPortal: "राष्ट्रीय चक्रीय अर्थव्यवस्था पोर्टल",
     cpcbVerified: "CPCB द्वारा प्रमाणित",
+    pendingSyncBadge: "सिंक बाकी (ऑफ़लाइन)",
+    offlineCreatedNotice: "ऑफ़लाइन सुरक्षित! इंटरनेट आते ही CPCB सर्वर पर अपलोड हो जाएगा।",
+    syncedNotice: "सभी ऑफ़लाइन लॉट सफलतापूर्वक CPCB से सिंक हो गए",
+    pendingLotsNotice: "लॉट ऑफ़लाइन सुरक्षित • इंटरनेट पर स्वतः सिंक",
 
     // Home Screen
     welcomeBack: "नमस्ते",
@@ -404,6 +412,10 @@ export const translations = {
     onlineNotice: "इंटरनेट कनेक्ट झाले",
     nationalCircularityPortal: "राष्ट्रीय चक्रीय अर्थव्यवस्था पोर्टल",
     cpcbVerified: "CPCB प्रमाणित",
+    pendingSyncBadge: "सिंक प्रलंबित (ऑफलाइन)",
+    offlineCreatedNotice: "ऑफलाइन सेव्ह झाला! इंटरनेट सुरू झाल्यावर CPCB सर्व्हरवर अपलोड होईल.",
+    syncedNotice: "सर्व ऑफलाइन लॉट CPCB सर्व्हरवर यशस्वीरित्या सिंक झाले",
+    pendingLotsNotice: "लॉट ऑफलाइन सेव्ह • इंटरनेटवर आपोआप सिंक",
 
     // Home Screen
     welcomeBack: "स्वागत आहे",

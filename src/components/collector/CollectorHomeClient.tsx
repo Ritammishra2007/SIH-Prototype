@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { CollectorTopBar } from "@/components/collector/CollectorTopBar";
 import { SafetyTipBanner } from "@/components/collector/SafetyTipBanner";
 import { useLanguage } from "@/context/LanguageContext";
+import { getPendingLots } from "@/lib/offline-store";
 import {
   Clock,
   ArrowRight,
@@ -13,6 +14,7 @@ import {
   Sparkles,
   MapPin,
   TrendingUp,
+  WifiOff,
 } from "lucide-react";
 
 interface CollectorHomeClientProps {
@@ -53,6 +55,25 @@ export function CollectorHomeClient({
   recentTransactions,
 }: CollectorHomeClientProps) {
   const { t, tStatus, tCategory, tPayment } = useLanguage();
+  const [offlineCount, setOfflineCount] = useState<number>(0);
+
+  useEffect(() => {
+    const checkOffline = async () => {
+      try {
+        const pending = await getPendingLots();
+        setOfflineCount(pending.length);
+      } catch {
+        // IndexedDB not ready or SSR
+      }
+    };
+    checkOffline();
+    window.addEventListener("recyconnect:synced", checkOffline);
+    window.addEventListener("recyconnect:offlinelot_created", checkOffline);
+    return () => {
+      window.removeEventListener("recyconnect:synced", checkOffline);
+      window.removeEventListener("recyconnect:offlinelot_created", checkOffline);
+    };
+  }, []);
 
   return (
     <div className="flex flex-col flex-1 pb-4 bg-white">
@@ -75,6 +96,29 @@ export function CollectorHomeClient({
             <span>{collector?.generalLocation || "Delhi NCR"}</span>
           </span>
         </div>
+
+        {/* Offline Pending Sync Banner if any lots are stored locally */}
+        {offlineCount > 0 && (
+          <Link
+            href="/collector/ledger"
+            className="p-3.5 rounded-2xl bg-amber-50 border border-amber-300 text-amber-900 flex items-center justify-between shadow-sm active:scale-[0.99] transition hover:bg-amber-100/70"
+          >
+            <div className="flex items-center gap-2.5">
+              <div className="w-9 h-9 rounded-xl bg-amber-200/80 text-amber-800 flex items-center justify-center shrink-0">
+                <WifiOff className="w-4 h-4" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-amber-900">
+                  {offlineCount} {t("pendingLotsNotice")}
+                </p>
+                <p className="text-[10px] text-amber-700">
+                  {t("pendingSyncBadge")} • {t("syncedNotice")}
+                </p>
+              </div>
+            </div>
+            <ArrowRight className="w-4 h-4 text-amber-700 shrink-0 ml-2" />
+          </Link>
+        )}
 
         {/* 1. Big "New Lot" Call To Action Banner */}
         <Link

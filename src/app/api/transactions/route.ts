@@ -65,9 +65,12 @@ export async function POST(request: Request) {
     const nextSeq = 92 + count; // start from L-0092+
     const lotId = `L-${String(nextSeq).padStart(4, "0")}`;
 
-    // 4. Generate unique handoverReference and 4-digit OTP
-    const refCode = `REF-${materialCategory.substring(0, 3)}-${Math.floor(1000 + Math.random() * 9000)}`;
-    const otpCode = Math.floor(1000 + Math.random() * 9000).toString();
+    // 4. Generate unique handoverReference and 4-digit OTP (preserving offline values if syncing)
+    const refCode =
+      body.handoverReference ||
+      `REF-${materialCategory.substring(0, 3)}-${Math.floor(1000 + Math.random() * 9000)}`;
+    const otpCode = body.otpCode || Math.floor(1000 + Math.random() * 9000).toString();
+    const initialStatus = body.transactionStatus || TransactionStatus.MATCHED;
 
     // 5. Create transaction and initial traceability record
     const transaction = await prisma.transaction.create({
@@ -81,7 +84,7 @@ export async function POST(request: Request) {
         collectionLocation: collectionLocation || "Seelampur Scrap Mandi, Delhi",
         handoverLocation: recycler?.location || "Designated Recycler Depot",
         paymentStatus: PaymentStatus.PENDING,
-        transactionStatus: TransactionStatus.MATCHED,
+        transactionStatus: initialStatus,
         traceability: {
           create: {
             photoUrls: JSON.stringify([
