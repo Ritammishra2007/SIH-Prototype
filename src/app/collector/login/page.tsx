@@ -198,20 +198,21 @@ export default function CollectorLoginPage() {
             </form>
           ) : (
             <form onSubmit={handleVerifyOtp} className="space-y-4">
-              <div className="text-center py-2">
-                <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 mx-auto mb-3">
-                  <KeyRound className="w-7 h-7" />
+              <div className="text-center py-1">
+                <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 mx-auto mb-2">
+                  <KeyRound className="w-5 h-5" />
                 </div>
-                <h2 className="text-xl font-bold text-slate-900">
+                <h2 className="text-lg font-bold text-slate-900">
                   {t("enterOtp")}
                 </h2>
-                <p className="text-xs text-slate-500 mt-1">
-                  {t("enterOtpSubtitle")} <span className="font-semibold text-slate-900">+91 {phone}</span>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  {t("enterOtpSubtitle")}{" "}
+                  <span className="font-semibold text-slate-900">+91 {phone}</span>
                 </p>
               </div>
 
-              {/* 4 Digit Boxes */}
-              <div className="flex justify-center gap-3 py-3">
+              {/* 4 Digit Boxes - compact, well-proportioned */}
+              <div className="flex justify-center gap-2.5 py-1">
                 {[0, 1, 2, 3].map((idx) => (
                   <input
                     key={idx}
@@ -221,14 +222,14 @@ export default function CollectorLoginPage() {
                     value={otp[idx]}
                     onChange={(e) => handleOtpChange(idx, e.target.value)}
                     onKeyDown={(e) => handleOtpKeyDown(idx, e)}
-                    className="w-13 h-14 text-center text-2xl font-bold rounded-xl bg-slate-50 border-2 border-slate-200 text-slate-900 focus:border-blue-600 focus:bg-white focus:outline-none transition shadow-sm"
+                    className="w-11 h-12 text-center text-xl font-mono font-bold rounded-lg bg-slate-50 border border-slate-300 text-slate-900 focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 focus:outline-none transition shadow-xs"
                     autoFocus={idx === 0}
                   />
                 ))}
               </div>
 
               {/* Demo Hint Banner */}
-              <div className="p-3 rounded-xl bg-blue-50 border border-blue-200 text-xs text-blue-800 flex items-center justify-between">
+              <div className="p-2.5 rounded-xl bg-blue-50 border border-blue-200 text-xs text-blue-800 flex items-center justify-between">
                 <span>{t("demoOtpNotice")}</span>
                 <button
                   type="button"
@@ -242,10 +243,10 @@ export default function CollectorLoginPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full mt-4 py-3.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 disabled:opacity-50 text-white font-bold text-base flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 transition-all active:scale-[0.98]"
+                className="w-full mt-3 py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 disabled:opacity-50 text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-md shadow-blue-500/20 transition-all active:scale-[0.98]"
               >
                 <span>{loading ? "Verifying..." : t("verifyBtn")}</span>
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4" />
               </button>
             </form>
           )}

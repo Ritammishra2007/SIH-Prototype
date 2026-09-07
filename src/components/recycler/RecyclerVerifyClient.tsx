@@ -147,6 +147,13 @@ export function RecyclerVerifyClient() {
     }
   };
 
+  const handleOtpKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Backspace" && !otpDigits[index] && index > 0) {
+      const prevInput = document.getElementById(`recycler-otp-${index - 1}`);
+      prevInput?.focus();
+    }
+  };
+
   const handleVerifyOtp = () => {
     if (!selectedLot) return;
     setOtpError("");
@@ -343,7 +350,7 @@ export function RecyclerVerifyClient() {
                       </div>
                     )}
 
-                    <div className="flex justify-center gap-2.5">
+                    <div className="flex justify-center gap-2 py-0.5">
                       {[0, 1, 2, 3].map((idx) => (
                         <input
                           key={idx}
@@ -352,7 +359,8 @@ export function RecyclerVerifyClient() {
                           maxLength={1}
                           value={otpDigits[idx]}
                           onChange={(e) => handleOtpChange(idx, e.target.value)}
-                          className="w-12 h-12 text-center text-xl font-mono font-bold rounded-xl bg-white border border-slate-300 text-slate-900 focus:border-blue-600 focus:bg-white focus:outline-none transition shadow-sm"
+                          onKeyDown={(e) => handleOtpKeyDown(idx, e)}
+                          className="w-9 h-10 text-center text-lg font-mono font-bold rounded-lg bg-white border border-slate-300 text-slate-900 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 focus:outline-none transition shadow-xs"
                         />
                       ))}
                     </div>

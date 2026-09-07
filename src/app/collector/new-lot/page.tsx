@@ -632,15 +632,15 @@ export default function NewLotWizardPage() {
                 </div>
 
                 {/* Fallback 4-Digit OTP Code */}
-                <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 max-w-[320px] mx-auto space-y-1.5 shadow-sm">
-                  <p className="text-xs text-slate-600 font-medium">
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 max-w-[280px] mx-auto space-y-1 shadow-xs">
+                  <p className="text-[11px] text-slate-500 font-medium">
                     {t("fallbackOtpTitle")}
                   </p>
-                  <div className="flex justify-center gap-2 font-mono text-2xl font-black text-blue-700 tracking-widest py-1">
+                  <div className="flex justify-center gap-2 font-mono py-0.5">
                     {otpCode.split("").map((digit, i) => (
                       <span
                         key={i}
-                        className="w-10 h-11 rounded-xl bg-white border border-slate-300 flex items-center justify-center text-blue-700 shadow-sm"
+                        className="w-9 h-10 rounded-lg bg-white border border-slate-300 flex items-center justify-center text-blue-700 font-bold text-lg shadow-xs"
                       >
                         {digit}
                       </span>
