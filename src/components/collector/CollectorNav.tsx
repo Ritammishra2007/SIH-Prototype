@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, ReceiptText, User, Plus } from "lucide-react";
+import { Home, TrendingUp, ReceiptText, User, Plus } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function CollectorNav() {
@@ -15,20 +15,35 @@ export function CollectorNav() {
   const isActive = (path: string) => pathname.startsWith(path);
 
   return (
-    <div className="bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-2 select-none shrink-0 shadow-[0_-2px_10px_rgba(0,0,0,0.03)]">
-      <div className="flex items-center justify-around relative">
+    <div className="bg-white/95 backdrop-blur-md border-t border-slate-200 px-2 py-2 select-none shrink-0 shadow-[0_-2px_10px_rgba(0,0,0,0.03)]">
+      <div className="flex items-center justify-around relative max-w-[430px] mx-auto">
         {/* Tab 1: Home */}
         <Link
           href="/collector/home"
-          className={`flex flex-col items-center justify-center w-16 py-1.5 transition-colors ${
+          className={`flex flex-col items-center justify-center w-14 py-1.5 transition-colors ${
             isActive("/collector/home")
               ? "text-blue-600 font-bold"
               : "text-slate-400 hover:text-slate-700"
           }`}
         >
           <Home className="w-5 h-5 mb-0.5" />
-          <span className="text-[11px] font-medium tracking-tight">
+          <span className="text-[10px] font-medium tracking-tight">
             {t("home")}
+          </span>
+        </Link>
+
+        {/* Tab 2: Rates / Price Board */}
+        <Link
+          href="/collector/prices"
+          className={`flex flex-col items-center justify-center w-14 py-1.5 transition-colors ${
+            isActive("/collector/prices")
+              ? "text-blue-600 font-bold"
+              : "text-slate-400 hover:text-slate-700"
+          }`}
+        >
+          <TrendingUp className="w-5 h-5 mb-0.5" />
+          <span className="text-[10px] font-medium tracking-tight">
+            {t("pricesNav")}
           </span>
         </Link>
 
@@ -45,32 +60,32 @@ export function CollectorNav() {
           </span>
         </Link>
 
-        {/* Tab 2: Ledger */}
+        {/* Tab 3: Ledger */}
         <Link
           href="/collector/ledger"
-          className={`flex flex-col items-center justify-center w-16 py-1.5 transition-colors ${
+          className={`flex flex-col items-center justify-center w-14 py-1.5 transition-colors ${
             isActive("/collector/ledger")
               ? "text-blue-600 font-bold"
               : "text-slate-400 hover:text-slate-700"
           }`}
         >
           <ReceiptText className="w-5 h-5 mb-0.5" />
-          <span className="text-[11px] font-medium tracking-tight">
+          <span className="text-[10px] font-medium tracking-tight">
             {t("ledger")}
           </span>
         </Link>
 
-        {/* Tab 3: Profile */}
+        {/* Tab 4: Profile */}
         <Link
           href="/collector/profile"
-          className={`flex flex-col items-center justify-center w-16 py-1.5 transition-colors ${
+          className={`flex flex-col items-center justify-center w-14 py-1.5 transition-colors ${
             isActive("/collector/profile")
               ? "text-blue-600 font-bold"
               : "text-slate-400 hover:text-slate-700"
           }`}
         >
           <User className="w-5 h-5 mb-0.5" />
-          <span className="text-[11px] font-medium tracking-tight">
+          <span className="text-[10px] font-medium tracking-tight">
             {t("profile")}
           </span>
         </Link>

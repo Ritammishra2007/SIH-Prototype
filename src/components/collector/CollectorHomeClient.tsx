@@ -12,6 +12,7 @@ import {
   Truck,
   Sparkles,
   MapPin,
+  TrendingUp,
 } from "lucide-react";
 
 interface CollectorHomeClientProps {
@@ -105,7 +106,34 @@ export function CollectorHomeClient({
           </div>
         </Link>
 
-        {/* 2. Rotating Safety-Tip Banner */}
+        {/* 2. Today's Price Board Shortcut Banner */}
+        <Link
+          href="/collector/prices"
+          className="p-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white flex items-center justify-between shadow-md hover:shadow-lg transition-all active:scale-[0.98] border border-slate-800 group"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-blue-600/30 border border-blue-400/30 flex items-center justify-center text-blue-400 shrink-0 group-hover:scale-105 transition-transform">
+              <TrendingUp className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="flex items-center gap-1.5">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-blue-400">
+                  {t("priceBoardBadge")}
+                </span>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+              </div>
+              <h4 className="text-xs font-bold text-white leading-tight mt-0.5">
+                {t("priceBoardBannerTitle")}
+              </h4>
+              <p className="text-[10px] text-slate-400 mt-0.5">
+                {t("priceBoardBannerDesc")}
+              </p>
+            </div>
+          </div>
+          <ArrowRight className="w-4 h-4 text-blue-400 shrink-0 ml-2 group-hover:translate-x-0.5 transition-transform" />
+        </Link>
+
+        {/* 3. Rotating Safety-Tip Banner */}
         <SafetyTipBanner />
 
         {/* 3. Earnings Ledger Shortcut & Pending Balance Card */}

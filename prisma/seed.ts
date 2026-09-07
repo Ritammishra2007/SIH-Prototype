@@ -179,7 +179,22 @@ async function main() {
     await prisma.price.create({ data: p });
   }
 
-  console.log("✅ Seeded 6 Benchmark Price Records (Informal vs Formal spreads)");
+  // Seed historical price records from 7 days ago to enable trend derivation
+  const oneWeekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+  const historicalPriceData = [
+    { materialCategory: MaterialCategory.PCB, location: "Delhi NCR Scrap Hub", informalPricePerKg: 175.0, formalPricePerKg: 250.0, unit: "kg", date: oneWeekAgo },
+    { materialCategory: MaterialCategory.BATTERY, location: "Delhi NCR Scrap Hub", informalPricePerKg: 95.0, formalPricePerKg: 150.0, unit: "kg", date: oneWeekAgo },
+    { materialCategory: MaterialCategory.CABLE, location: "Delhi NCR Scrap Hub", informalPricePerKg: 55.0, formalPricePerKg: 90.0, unit: "kg", date: oneWeekAgo },
+    { materialCategory: MaterialCategory.CRT_LCD, location: "Delhi NCR Scrap Hub", informalPricePerKg: 20.0, formalPricePerKg: 55.0, unit: "kg", date: oneWeekAgo },
+    { materialCategory: MaterialCategory.MOTOR_MAGNET, location: "Delhi NCR Scrap Hub", informalPricePerKg: 105.0, formalPricePerKg: 160.0, unit: "kg", date: oneWeekAgo },
+    { materialCategory: MaterialCategory.MIXED_PLASTIC, location: "Delhi NCR Scrap Hub", informalPricePerKg: 14.0, formalPricePerKg: 24.0, unit: "kg", date: oneWeekAgo },
+  ];
+
+  for (const hp of historicalPriceData) {
+    await prisma.price.create({ data: hp });
+  }
+
+  console.log("✅ Seeded 6 Benchmark Price Records + 6 Historical Records (Trends & Spreads)");
 
   // 4. Seed Sample Materials catalog items
   await prisma.material.createMany({

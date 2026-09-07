@@ -4,6 +4,7 @@ export const translations = {
   EN: {
     // Navigation
     home: "Home",
+    pricesNav: "Rates",
     ledger: "Ledger",
     profile: "Profile",
     newLot: "New Lot",
@@ -22,6 +23,9 @@ export const translations = {
     welcomeBack: "Welcome back",
     defaultCollectorName: "Scrap Collector",
     instantBenchmarkRates: "Instant Benchmark Rates",
+    priceBoardBannerTitle: "Today's Mandi Price Board",
+    priceBoardBannerDesc: "Check rates for all 6 materials & listen aloud in your language",
+    viewFullPriceBoard: "View Price Board",
     logNewLotTitle: "Sell E-Waste Scrap",
     logNewLotSubtitle: "Get up to +60% formal market rates",
     startNewLotBtn: "+ Create New Scrap Lot",
@@ -52,6 +56,22 @@ export const translations = {
     cat_MOTOR_MAGNET_desc: "Hard drive magnets, alternator coils & motors",
     cat_MIXED_PLASTIC: "Mixed E-Plastic",
     cat_MIXED_PLASTIC_desc: "ABS printer casings & computer housing",
+
+    // Price Board Screen
+    priceBoardTitle: "Today's Mandi Rates",
+    priceBoardSubtitle: "Real-time formal recycling rates vs local informal mandi prices",
+    priceBoardBadge: "Live Daily Benchmark",
+    listenBtn: "Listen",
+    listening: "Playing...",
+    stopListen: "Stop",
+    trendUp: "Up vs last week",
+    trendDown: "Down vs last week",
+    trendSteady: "Steady vs last week",
+    formalRateLabel: "Formal Facility",
+    informalRateLabel: "Local Dealer",
+    extraBonusPerKg: "Formal Bonus",
+    sellThisScrapBtn: "Create Scrap Lot",
+    audioNotSupported: "Speech synthesis is not supported on this browser",
 
     // Step 1: Category Select
     selectCategoryTitle: "Select Material Category",
@@ -177,6 +197,7 @@ export const translations = {
   HI: {
     // Navigation
     home: "होम",
+    pricesNav: "भाव",
     ledger: "खाता बही",
     profile: "प्रोफ़ाइल",
     newLot: "नया लॉट",
@@ -195,6 +216,9 @@ export const translations = {
     welcomeBack: "नमस्ते",
     defaultCollectorName: "स्क्रैप संग्रहकर्ता",
     instantBenchmarkRates: "तुरंत सही मंडी भाव",
+    priceBoardBannerTitle: "आज का मंडी भाव बोर्ड",
+    priceBoardBannerDesc: "सभी ६ श्रेणियों के भाव देखें और अपनी भाषा में सुनें",
+    viewFullPriceBoard: "पूरा भाव बोर्ड देखें",
     logNewLotTitle: "ई-कचरा स्क्रैप बेचें",
     logNewLotSubtitle: "सामान्य कबाड़ी से +60% तक अधिक दाम पाएं",
     startNewLotBtn: "+ नया स्क्रैप लॉट जोड़ें",
@@ -225,6 +249,22 @@ export const translations = {
     cat_MOTOR_MAGNET_desc: "हार्ड डिस्क मैग्नेट, अल्टरनेटर कॉइल और छोटी मोटर",
     cat_MIXED_PLASTIC: "मिश्रित ई-प्लास्टिक",
     cat_MIXED_PLASTIC_desc: "प्रिंटर कवर, सीपीयू कैबिनेट और प्लास्टिक बॉडी",
+
+    // Price Board Screen
+    priceBoardTitle: "आज का मंडी भाव",
+    priceBoardSubtitle: "अधिकृत रीसाइक्लिंग दर बनाम स्थानीय कबाड़ी भाव",
+    priceBoardBadge: "दैनिक लाइव भाव",
+    listenBtn: "सुनें",
+    listening: "आवाज चालू है...",
+    stopListen: "रोकें",
+    trendUp: "पिछले हफ्ते से अधिक",
+    trendDown: "पिछले हफ्ते से कम",
+    trendSteady: "पिछले हफ्ते जैसा स्थिर",
+    formalRateLabel: "अधिकृत केंद्र",
+    informalRateLabel: "स्थानीय कबाड़ी",
+    extraBonusPerKg: "अतिरिक्त लाभ",
+    sellThisScrapBtn: "स्क्रैप लॉट बनाएं",
+    audioNotSupported: "इस डिवाइस पर ऑडियो वाचन समर्थित नहीं है",
 
     // Step 1: Category Select
     selectCategoryTitle: "कचरे की श्रेणी चुनें",
@@ -350,6 +390,7 @@ export const translations = {
   MR: {
     // Navigation
     home: "मुख्यपृष्ठ",
+    pricesNav: "बाजारभाव",
     ledger: "हिशोब वही",
     profile: "प्रोफाइल",
     newLot: "नवीन लॉट",
@@ -368,6 +409,9 @@ export const translations = {
     welcomeBack: "स्वागत आहे",
     defaultCollectorName: "भंगार संकलक",
     instantBenchmarkRates: "तात्काळ अधिकृत बाजारभाव",
+    priceBoardBannerTitle: "आजचा बाजारभाव फलक",
+    priceBoardBannerDesc: "सर्व ६ प्रकारच्या स्क्रॅपचे दर तपासा आणि आपल्या भाषेत ऐका",
+    viewFullPriceBoard: "संपूर्ण बाजारभाव फलक पहा",
     logNewLotTitle: "ई-कचरा स्क्रॅप विका",
     logNewLotSubtitle: "अधिकृत बाजारातून +६०% पर्यंत जास्त दर मिळवा",
     startNewLotBtn: "+ नवीन स्क्रॅप लॉट नोंदवा",
@@ -398,6 +442,22 @@ export const translations = {
     cat_MOTOR_MAGNET_desc: "हार्ड ड्राईव्ह मॅग्नेट्स, अल्टरनेटर कॉइल व मोटर्स",
     cat_MIXED_PLASTIC: "मिश्रित ई-प्लास्टिक",
     cat_MIXED_PLASTIC_desc: "प्रिंटर कव्हर, सीपीयू कॅबिनेट व प्लास्टिक बॉडी",
+
+    // Price Board Screen
+    priceBoardTitle: "आजचे अधिकृत बाजारभाव",
+    priceBoardSubtitle: "अधिकृत रिसायकलिंग दर विरुद्ध स्थानिक भंगार दर",
+    priceBoardBadge: "थेट दैनंदिन दर",
+    listenBtn: "ऐका",
+    listening: "आवाज सुरू आहे...",
+    stopListen: "थांबवा",
+    trendUp: "गेल्या आठवड्यापेक्षा जास्त",
+    trendDown: "गेल्या आठवड्यापेक्षा कमी",
+    trendSteady: "गेल्या आठवड्यासारखे स्थिर",
+    formalRateLabel: "अधिकृत केंद्र",
+    informalRateLabel: "स्थानिक कबाडी",
+    extraBonusPerKg: "अतिरिक्त नफा",
+    sellThisScrapBtn: "स्क्रॅप लॉट नोंदवा",
+    audioNotSupported: "या डिव्हाइसवर ऑडिओ वाचन उपलब्ध नाही",
 
     // Step 1: Category Select
     selectCategoryTitle: "कचऱ्याचा प्रकार निवडा",
