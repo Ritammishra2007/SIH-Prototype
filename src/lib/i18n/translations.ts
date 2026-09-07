@@ -15,9 +15,13 @@ export const translations = {
     appTitle: "RecyConnect",
     offlineNotice: "Offline — will sync when connected",
     onlineNotice: "Connected",
+    nationalCircularityPortal: "National Circularity Portal",
+    cpcbVerified: "CPCB Verified",
 
     // Home Screen
     welcomeBack: "Welcome back",
+    defaultCollectorName: "Scrap Collector",
+    instantBenchmarkRates: "Instant Benchmark Rates",
     logNewLotTitle: "Sell E-Waste Scrap",
     logNewLotSubtitle: "Get up to +60% formal market rates",
     startNewLotBtn: "+ Create New Scrap Lot",
@@ -26,6 +30,7 @@ export const translations = {
     viewLedgerBtn: "View Ledger History",
     paidBalance: "Total Paid",
     activeLotsTitle: "Active Lots In Handover",
+    seeAll: "See all",
     noActiveLots: "No active lots. Tap above to create your first lot.",
 
     // Safety Tips
@@ -58,6 +63,15 @@ export const translations = {
     weightUnit: "kg",
     slideHint: "Estimated lot scale reading (1 to 40 kg)",
 
+    // Step indicators
+    step: "Step",
+    of: "of",
+    step_category: "Category",
+    step_weight: "Weight",
+    step_price: "Price",
+    step_recycler: "Recycler",
+    step_handover: "Handover",
+
     // Step 3: Price Comparison Screen (Headline)
     valueComparisonTitle: "Instant Price Comparison",
     valueComparisonSubtitle: "Why formal recyclers pay more than local middlemen",
@@ -74,9 +88,13 @@ export const translations = {
     // Step 4: Recycler Match
     matchRecyclerTitle: "Select Authorized Recycler",
     matchRecyclerSubtitle: "Ranked by distance and offered bonus rate",
+    matchingFacilities: "Matching authorized facilities...",
     pickupAvailable: "Doorstep Pickup Available",
     dropoffOnly: "Direct Drop-off Only",
     bonusRate: "rate bonus",
+    selectBtn: "Select",
+    booking: "Booking...",
+    creatingLot: "Creating Lot...",
     selectAndConfirm: "Confirm Handover to Recycler",
 
     // Step 5: Handover Screen
@@ -84,20 +102,45 @@ export const translations = {
     handoverSubtitle: "Show this QR code to the collection van or at facility gate",
     lotReference: "Handover Reference",
     fallbackOtpTitle: "Or share this one-time code",
+    designatedRecycler: "Designated Recycler",
+    quotedPayout: "Quoted Payout",
     markHandedOverBtn: "Mark as Handed Over",
+    recordingHandover: "Recording Handover...",
     handoverSuccessTitle: "Handover Recorded Successfully!",
     handoverSuccessDesc: "Your lot is now marked as HANDED OVER. Recycler will verify weighment and release payment.",
+    copied: "Copied!",
+    lotIdLabel: "Lot ID",
+    materialLabel: "Material",
+    recyclerLabel: "Recycler",
+    quotedAmountLabel: "Quoted Amount",
     viewInLedgerBtn: "Go to Ledger",
     createNewLotBtn: "Log Another Lot",
 
     // Ledger Screen
     ledgerTitle: "Scrap Ledger",
     ledgerSubtitle: "All logged transactions & payment receipts",
+    totalVolume: "Total Volume",
+    totalLotsCount: "Total Lots",
+    awaitingPayout: "Awaiting payout",
+    filterAll: "All Lots",
+    filterPending: "Pending Payout",
+    filterPaid: "Paid to Cash/UPI",
+    noFilteredTransactions: "No transactions matching filter.",
+    viewCodeBtn: "View Code",
+    pendingAssignment: "Pending assignment",
+    handoverPassTitle: "Handover Pass",
+    referenceLabel: "Reference",
+    closeBtn: "Close",
+
+    // Transaction & Payment Statuses
     status_QUOTED: "Quoted",
     status_MATCHED: "Matched",
     status_HANDED_OVER: "Handed Over",
     status_VERIFIED: "Weighed & Verified",
     status_COMPLETED: "Completed",
+    status_AUTHORIZED: "Authorized",
+    status_PENDING: "Pending",
+    status_REVOKED: "Revoked",
     payment_PENDING: "Payment Pending",
     payment_PAID: "Paid to UPI/Cash",
 
@@ -110,6 +153,8 @@ export const translations = {
     environmentalImpactTitle: "Your Environmental Impact",
     toxicLeadPrevented: "Toxic Lead Diverted",
     co2EmissionsSaved: "CO₂ Emissions Avoided",
+    registeredBadge: "REGISTERED",
+    totalFormalizedScrap: "Total Formalized Scrap",
     logoutBtn: "Log Out of Field App",
 
     // Collector Login Screen
@@ -122,8 +167,11 @@ export const translations = {
     enterOtp: "Enter 4-Digit OTP",
     enterOtpSubtitle: "Enter verification code sent to your phone",
     verifyBtn: "Verify & Enter App",
+    verifying: "Verifying...",
     demoOtpNotice: "For demo, any 10-digit number + code 4912 works.",
+    autoFillDemoOtp: "Auto-fill 4912",
     quickDemoAccounts: "Quick demo accounts:",
+    demoNoticeFooter: "Demonstration environment • Zero external APIs required",
   },
 
   HI: {
@@ -140,9 +188,13 @@ export const translations = {
     appTitle: "रीसाइकनेक्ट",
     offlineNotice: "ऑफ़लाइन — इंटरनेट आने पर सिंक होगा",
     onlineNotice: "इंटरनेट कनेक्टेड",
+    nationalCircularityPortal: "राष्ट्रीय चक्रीय अर्थव्यवस्था पोर्टल",
+    cpcbVerified: "CPCB द्वारा प्रमाणित",
 
     // Home Screen
     welcomeBack: "नमस्ते",
+    defaultCollectorName: "स्क्रैप संग्रहकर्ता",
+    instantBenchmarkRates: "तुरंत सही मंडी भाव",
     logNewLotTitle: "ई-कचरा स्क्रैप बेचें",
     logNewLotSubtitle: "सामान्य कबाड़ी से +60% तक अधिक दाम पाएं",
     startNewLotBtn: "+ नया स्क्रैप लॉट जोड़ें",
@@ -151,6 +203,7 @@ export const translations = {
     viewLedgerBtn: "खाता बही देखें",
     paidBalance: "कुल प्राप्त राशि",
     activeLotsTitle: "सक्रिय लॉट (हैंडओवर में)",
+    seeAll: "सभी देखें",
     noActiveLots: "कोई सक्रिय लॉट नहीं है। नया लॉट जोड़ने के लिए ऊपर टैप करें।",
 
     // Safety Tips
@@ -183,6 +236,15 @@ export const translations = {
     weightUnit: "किग्रा",
     slideHint: "अनुमानित वजन पैमाना (1 से 40 किग्रा)",
 
+    // Step indicators
+    step: "चरण",
+    of: "का",
+    step_category: "श्रेणी",
+    step_weight: "वजन",
+    step_price: "मूल्य",
+    step_recycler: "रीसाइक्लर",
+    step_handover: "हैंडओवर",
+
     // Step 3: Price Comparison Screen (Headline)
     valueComparisonTitle: "तुरंत मूल्य तुलना",
     valueComparisonSubtitle: "अधिकृत रीसाइक्लर स्थानीय कबाड़ी से अधिक दाम क्यों देते हैं",
@@ -199,9 +261,13 @@ export const translations = {
     // Step 4: Recycler Match
     matchRecyclerTitle: "अधिकृत रीसाइक्लर चुनें",
     matchRecyclerSubtitle: "निकटतम दूरी और सबसे अच्छे रेट के आधार पर क्रमबद्ध",
+    matchingFacilities: "अधिकृत रीसाइक्लिंग केंद्रों की खोज जारी...",
     pickupAvailable: "घर या दुकान से पिकअप उपलब्ध",
     dropoffOnly: "सीधे केंद्र पर जमा करें",
     bonusRate: "अतिरिक्त बोनस रेट",
+    selectBtn: "चुनें",
+    booking: "बुकिंग जारी...",
+    creatingLot: "लॉट बनाया जा रहा है...",
     selectAndConfirm: "रीसाइक्लर को हैंडओवर कन्फर्म करें",
 
     // Step 5: Handover Screen
@@ -209,20 +275,45 @@ export const translations = {
     handoverSubtitle: "यह क्यूआर कोड पिकअप वैन ड्राइवर या गेट पर दिखाएं",
     lotReference: "हैंडओवर संदर्भ कोड",
     fallbackOtpTitle: "या यह 4 अंकों का गुप्त कोड बताएं",
+    designatedRecycler: "निर्धारित रीसाइक्लर",
+    quotedPayout: "तय भुगतान",
     markHandedOverBtn: "हैंडओवर पूरा करें",
+    recordingHandover: "हैंडओवर दर्ज हो रहा है...",
     handoverSuccessTitle: "हैंडओवर सफलतापूर्वक दर्ज हुआ!",
     handoverSuccessDesc: "आपका लॉट हैंडओवर हो गया है। वजन चेक होते ही भुगतान खाते में भेज दिया जाएगा।",
+    copied: "कॉपी हुआ!",
+    lotIdLabel: "लॉट पहचान",
+    materialLabel: "कचरा प्रकार",
+    recyclerLabel: "रीसाइक्लर",
+    quotedAmountLabel: "तय राशि",
     viewInLedgerBtn: "खाता बही देखें",
     createNewLotBtn: "एक और लॉट जोड़ें",
 
     // Ledger Screen
     ledgerTitle: "कचरा बिक्री हिसाब बही",
     ledgerSubtitle: "आपके सभी बेचे गए लॉट और भुगतान की रसीदें",
+    totalVolume: "कुल व्यापार",
+    totalLotsCount: "कुल लॉट",
+    awaitingPayout: "भुगतान बाकी",
+    filterAll: "सभी लॉट",
+    filterPending: "बकाया भुगतान",
+    filterPaid: "नकद/खाते में प्राप्त",
+    noFilteredTransactions: "इस श्रेणी में कोई लॉट नहीं है।",
+    viewCodeBtn: "कोड देखें",
+    pendingAssignment: "केंद्र आवंटन बाकी",
+    handoverPassTitle: "हैंडओवर पास",
+    referenceLabel: "संदर्भ कोड",
+    closeBtn: "बंद करें",
+
+    // Transaction & Payment Statuses
     status_QUOTED: "कोट किया गया",
-    status_MATCHED: "रीसाइक्लर तय",
+    status_MATCHED: "केंद्र तय",
     status_HANDED_OVER: "हैंडओवर हुआ",
     status_VERIFIED: "वजन सत्यापित",
-    status_COMPLETED: "भुगतान पूर्ण",
+    status_COMPLETED: "पूर्ण हुआ",
+    status_AUTHORIZED: "मान्यता प्राप्त",
+    status_PENDING: "प्रक्रिया में",
+    status_REVOKED: "रद्द किया गया",
     payment_PENDING: "भुगतान प्रक्रिया में",
     payment_PAID: "खाते या नकद में प्राप्त",
 
@@ -235,6 +326,8 @@ export const translations = {
     environmentalImpactTitle: "पर्यावरण में आपका योगदान",
     toxicLeadPrevented: "सुरक्षित निपटाया गया जहरीला सीसा",
     co2EmissionsSaved: "कार्बन उत्सर्जन की बचत",
+    registeredBadge: "पंजीकृत",
+    totalFormalizedScrap: "कुल औपचारिक ई-कचरा",
     logoutBtn: "लॉग आउट करें",
 
     // Collector Login Screen
@@ -247,8 +340,11 @@ export const translations = {
     enterOtp: "4 अंकों का ओटीपी दर्ज करें",
     enterOtpSubtitle: "अपने फोन पर भेजा गया सत्यापन कोड दर्ज करें",
     verifyBtn: "सत्यापित करें और आगे बढ़ें",
+    verifying: "सत्यापित हो रहा है...",
     demoOtpNotice: "डेमो के लिए कोई भी 10 अंकों का नंबर + कोड 4912 काम करेगा।",
+    autoFillDemoOtp: "4912 स्वतः भरें",
     quickDemoAccounts: "त्वरित डेमो खाते:",
+    demoNoticeFooter: "डेमो वातावरण • शून्य बाहरी एपीआई आवश्यक",
   },
 
   MR: {
@@ -265,9 +361,13 @@ export const translations = {
     appTitle: "RecyConnect",
     offlineNotice: "ऑफलाइन — इंटरनेट सुरू झाल्यावर सिंक होईल",
     onlineNotice: "इंटरनेट कनेक्ट झाले",
+    nationalCircularityPortal: "राष्ट्रीय चक्रीय अर्थव्यवस्था पोर्टल",
+    cpcbVerified: "CPCB प्रमाणित",
 
     // Home Screen
     welcomeBack: "स्वागत आहे",
+    defaultCollectorName: "भंगार संकलक",
+    instantBenchmarkRates: "तात्काळ अधिकृत बाजारभाव",
     logNewLotTitle: "ई-कचरा स्क्रॅप विका",
     logNewLotSubtitle: "अधिकृत बाजारातून +६०% पर्यंत जास्त दर मिळवा",
     startNewLotBtn: "+ नवीन स्क्रॅप लॉट नोंदवा",
@@ -276,6 +376,7 @@ export const translations = {
     viewLedgerBtn: "हिशोब वही पहा",
     paidBalance: "एकूण जमा रक्कम",
     activeLotsTitle: "सक्रिय लॉट (हस्तांतरणात)",
+    seeAll: "सर्व पहा",
     noActiveLots: "कोणताही सक्रिय लॉट नाही. नवीन लॉट नोंदवण्यासाठी वरील बटण दाबा.",
 
     // Safety Tips
@@ -308,6 +409,15 @@ export const translations = {
     weightUnit: "किलो",
     slideHint: "अंदाजे वजनाचे प्रमाण (१ ते ४० किलो)",
 
+    // Step indicators
+    step: "टप्पा",
+    of: "पैकी",
+    step_category: "प्रकार",
+    step_weight: "वजन",
+    step_price: "दर",
+    step_recycler: "रिसायकलर",
+    step_handover: "हस्तांतरण",
+
     // Step 3: Price Comparison Screen (Headline)
     valueComparisonTitle: "त्वरित दर तुलना",
     valueComparisonSubtitle: "स्थानिक दलालांपेक्षा अधिकृत रिसायकलर्स जास्त मोबदला का देतात",
@@ -324,9 +434,13 @@ export const translations = {
     // Step 4: Recycler Match
     matchRecyclerTitle: "अधिकृत रिसायकलर निवडा",
     matchRecyclerSubtitle: "कमी अंतर आणि सर्वोत्तम बोनस दरावर आधारित",
+    matchingFacilities: "अधिकृत केंद्रांशी जोडणी करत आहे...",
     pickupAvailable: "घरोघरी पिकअप उपलब्ध",
     dropoffOnly: "थेट केंद्रावर जमा करा",
     bonusRate: "अतिरिक्त बोनस दर",
+    selectBtn: "निवडा",
+    booking: "नोंदणी करत आहे...",
+    creatingLot: "लॉट तयार करत आहे...",
     selectAndConfirm: "हस्तांतरण निश्चित करा",
 
     // Step 5: Handover Screen
@@ -334,20 +448,45 @@ export const translations = {
     handoverSubtitle: "हा क्यूआर कोड पिकअप व्हॅन चालक किंवा केंद्राच्या प्रवेशद्वारावर दाखवा",
     lotReference: "हस्तांतरण संदर्भ क्रमांक",
     fallbackOtpTitle: "किंवा हा ४-अंकी ओटीपी सांगा",
+    designatedRecycler: "नियुक्त रिसायकलर",
+    quotedPayout: "निश्चित रक्कम",
     markHandedOverBtn: "हस्तांतरित म्हणून नोंद करा",
+    recordingHandover: "हस्तांतरण नोंदवत आहे...",
     handoverSuccessTitle: "हस्तांतरण यशस्वीरित्या नोंदवले गेले!",
     handoverSuccessDesc: "आपला लॉट हस्तांतरित झाला आहे. वजनाची तपासणी होताच रक्कम पाठवली जाईल.",
+    copied: "कॉपी केले!",
+    lotIdLabel: "लॉट ओळख क्रमांक",
+    materialLabel: "स्क्रॅप प्रकार",
+    recyclerLabel: "रिसायकलर",
+    quotedAmountLabel: "निश्चित रक्कम",
     viewInLedgerBtn: "हिशोब वही पहा",
     createNewLotBtn: "दुसरा लॉट नोंदवा",
 
     // Ledger Screen
     ledgerTitle: "स्क्रॅप हिशोब वही",
     ledgerSubtitle: "नोंदवलेले सर्व व्यवहार आणि पावत्या",
+    totalVolume: "एकूण व्यवहार",
+    totalLotsCount: "एकूण लॉट",
+    awaitingPayout: "रक्कम येणे बाकी",
+    filterAll: "सर्व लॉट",
+    filterPending: "प्रलंबित रक्कम",
+    filterPaid: "खात्यात/रोख जमा",
+    noFilteredTransactions: "या फिल्टरमध्ये कोणतेही व्यवहार नाहीत.",
+    viewCodeBtn: "कोड पहा",
+    pendingAssignment: "केंद्र नेमणे बाकी",
+    handoverPassTitle: "हस्तांतरण पास",
+    referenceLabel: "संदर्भ क्रमांक",
+    closeBtn: "बंद करा",
+
+    // Transaction & Payment Statuses
     status_QUOTED: "दर निश्चित",
-    status_MATCHED: "रिसायकलर निवडला",
+    status_MATCHED: "केंद्र जोडले",
     status_HANDED_OVER: "हस्तांतरित",
     status_VERIFIED: "वजन तपासले",
-    status_COMPLETED: "पूर्ण",
+    status_COMPLETED: "पूर्ण झाले",
+    status_AUTHORIZED: "मान्यताप्राप्त",
+    status_PENDING: "प्रलंबित",
+    status_REVOKED: "रद्द केलेले",
     payment_PENDING: "रक्कम येणे बाकी",
     payment_PAID: "रक्कम जमा झाली",
 
@@ -360,6 +499,8 @@ export const translations = {
     environmentalImpactTitle: "पर्यावरणातील तुमचे योगदान",
     toxicLeadPrevented: "घातक शिसे विल्हेवाट",
     co2EmissionsSaved: "कार्बन उत्सर्जन बचत",
+    registeredBadge: "नोंदणीकृत",
+    totalFormalizedScrap: "एकूण अधिकृत ई-कचरा",
     logoutBtn: "लॉग आउट करा",
 
     // Collector Login Screen
@@ -372,7 +513,31 @@ export const translations = {
     enterOtp: "4-अंकी ओटीपी प्रविष्ट करा",
     enterOtpSubtitle: "आपल्या फोनवर पाठवलेला पडताळणी कोड प्रविष्ट करा",
     verifyBtn: "पडताळणी करा आणि पुढे जा",
+    verifying: "पडताळणी होत आहे...",
     demoOtpNotice: "डेमोसाठी कोणताही 10 अंकी क्रमांक + कोड 4912 चालेल.",
+    autoFillDemoOtp: "४९१२ आपोआप भरा",
     quickDemoAccounts: "त्वरित डेमो खाती:",
+    demoNoticeFooter: "डेमो वातावरण • बाह्य एपीआयची आवश्यकता नाही",
   },
 };
+
+// Helper function to get localized category name
+export function getCategoryLabel(category: string, lang: Language): string {
+  const dict = translations[lang] || translations.EN;
+  const key = ("cat_" + category) as keyof typeof dict;
+  return (dict as any)[key] || category;
+}
+
+// Helper function to get localized transaction status
+export function getStatusLabel(status: string, lang: Language): string {
+  const dict = translations[lang] || translations.EN;
+  const key = ("status_" + status) as keyof typeof dict;
+  return (dict as any)[key] || status;
+}
+
+// Helper function to get localized payment status
+export function getPaymentLabel(status: string, lang: Language): string {
+  const dict = translations[lang] || translations.EN;
+  const key = ("payment_" + status) as keyof typeof dict;
+  return (dict as any)[key] || status;
+}

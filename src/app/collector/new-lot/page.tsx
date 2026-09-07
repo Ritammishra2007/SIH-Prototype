@@ -42,7 +42,7 @@ const CATEGORIES: CategoryOption[] = [
 
 export default function NewLotWizardPage() {
   const router = useRouter();
-  const { t } = useLanguage();
+  const { t, tCategory } = useLanguage();
 
   // Wizard Steps: 1 to 5
   const [step, setStep] = useState<1 | 2 | 3 | 4 | 5>(1);
@@ -224,17 +224,17 @@ export default function NewLotWizardPage() {
         {/* Step Progress Bar */}
         <div className="mb-4">
           <div className="flex items-center justify-between text-[11px] font-semibold text-slate-500 mb-1.5 px-1">
-            <span>Step {step} of 5</span>
+            <span>{t("step")} {step} {t("of")} 5</span>
             <span className="text-blue-600 font-bold">
               {step === 1
-                ? "Category"
+                ? t("step_category")
                 : step === 2
-                ? "Weight"
+                ? t("step_weight")
                 : step === 3
-                ? "Price"
+                ? t("step_price")
                 : step === 4
-                ? "Recycler"
-                : "Handover"}
+                ? t("step_recycler")
+                : t("step_handover")}
             </span>
           </div>
           <div className="flex gap-1.5">
@@ -499,7 +499,7 @@ export default function NewLotWizardPage() {
 
               {recyclersLoading ? (
                 <div className="p-8 text-center text-xs text-slate-500">
-                  Matching authorized facilities...
+                  {t("matchingFacilities")}
                 </div>
               ) : (
                 <div className="space-y-2.5">
@@ -563,7 +563,7 @@ export default function NewLotWizardPage() {
                             disabled={creatingTx}
                             className="px-3 py-1 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition active:scale-95 disabled:opacity-50 shadow-sm"
                           >
-                            {creatingTx && isSelected ? "Booking..." : "Select"}
+                            {creatingTx && isSelected ? t("booking") : t("selectBtn")}
                           </button>
                         </div>
                       </div>
@@ -580,7 +580,7 @@ export default function NewLotWizardPage() {
                 disabled={creatingTx}
                 className="w-full py-3.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold text-base flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 transition-all active:scale-[0.98] disabled:opacity-50"
               >
-                <span>{creatingTx ? "Creating Lot..." : t("selectAndConfirm")}</span>
+                <span>{creatingTx ? t("creatingLot") : t("selectAndConfirm")}</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
             )}
@@ -628,7 +628,7 @@ export default function NewLotWizardPage() {
                   >
                     <Copy className="w-3.5 h-3.5" />
                   </button>
-                  {copied && <span className="text-[10px] text-emerald-600 font-semibold">Copied!</span>}
+                  {copied && <span className="text-[10px] text-emerald-600 font-semibold">{t("copied")}</span>}
                 </div>
 
                 {/* Fallback 4-Digit OTP Code */}
@@ -657,11 +657,11 @@ export default function NewLotWizardPage() {
                 {/* Payout & Recycler info */}
                 <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs flex items-center justify-between text-left">
                   <div>
-                    <span className="text-slate-500 block text-[11px]">Designated Recycler</span>
+                    <span className="text-slate-500 block text-[11px]">{t("designatedRecycler")}</span>
                     <span className="font-bold text-slate-900">{selectedRecycler?.name}</span>
                   </div>
                   <div className="text-right">
-                    <span className="text-slate-500 block text-[11px]">Quoted Payout</span>
+                    <span className="text-slate-500 block text-[11px]">{t("quotedPayout")}</span>
                     <span className="font-bold text-blue-700 text-sm">
                       ₹{createdTx?.quotedValue?.toLocaleString("en-IN")}
                     </span>
@@ -675,7 +675,7 @@ export default function NewLotWizardPage() {
                   className="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold text-base flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/25 transition-all active:scale-[0.98] disabled:opacity-50"
                 >
                   <CheckCircle2 className="w-5 h-5" />
-                  <span>{markingHandover ? "Recording Handover..." : t("markHandedOverBtn")}</span>
+                  <span>{markingHandover ? t("recordingHandover") : t("markHandedOverBtn")}</span>
                 </button>
               </div>
             ) : (
@@ -694,19 +694,19 @@ export default function NewLotWizardPage() {
 
                   <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 max-w-[320px] mx-auto text-left space-y-2 mt-4 shadow-sm">
                     <div className="flex justify-between text-xs pb-1.5 border-b border-slate-200">
-                      <span className="text-slate-500">Lot ID</span>
+                      <span className="text-slate-500">{t("lotIdLabel")}</span>
                       <span className="font-mono font-bold text-slate-900">{createdTx?.lotId}</span>
                     </div>
                     <div className="flex justify-between text-xs pb-1.5 border-b border-slate-200">
-                      <span className="text-slate-500">Material</span>
-                      <span className="font-bold text-slate-900">{selectedCategory} ({weightKg} kg)</span>
+                      <span className="text-slate-500">{t("materialLabel")}</span>
+                      <span className="font-bold text-slate-900">{tCategory(selectedCategory)} ({weightKg} {t("weightUnit")})</span>
                     </div>
                     <div className="flex justify-between text-xs pb-1.5 border-b border-slate-200">
-                      <span className="text-slate-500">Recycler</span>
+                      <span className="text-slate-500">{t("designatedRecycler")}</span>
                       <span className="font-medium text-slate-900">{selectedRecycler?.name}</span>
                     </div>
                     <div className="flex justify-between text-xs pt-1">
-                      <span className="text-slate-500">Quoted Amount</span>
+                      <span className="text-slate-500">{t("quotedAmountLabel")}</span>
                       <span className="font-bold text-blue-700 text-sm">
                         ₹{createdTx?.quotedValue?.toLocaleString("en-IN")}
                       </span>

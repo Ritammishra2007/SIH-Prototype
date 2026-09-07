@@ -1,7 +1,13 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { translations, Language } from "@/lib/i18n/translations";
+import {
+  translations,
+  Language,
+  getCategoryLabel,
+  getStatusLabel,
+  getPaymentLabel,
+} from "@/lib/i18n/translations";
 
 export type TranslationKey = keyof typeof translations.EN;
 
@@ -22,6 +28,9 @@ interface LanguageContextType {
   setLanguage: (lang: Language) => void;
   cycleLanguage: () => void;
   t: (key: TranslationKey) => string;
+  tStatus: (status: string) => string;
+  tCategory: (cat: string) => string;
+  tPayment: (status: string) => string;
   languages: LanguageOption[];
 }
 
@@ -71,6 +80,18 @@ export function LanguageProvider({
     return (dict as any)[key] || (translations.EN as any)[key] || key;
   };
 
+  const tStatus = (status: string): string => {
+    return getStatusLabel(status, language);
+  };
+
+  const tCategory = (cat: string): string => {
+    return getCategoryLabel(cat, language);
+  };
+
+  const tPayment = (status: string): string => {
+    return getPaymentLabel(status, language);
+  };
+
   return (
     <LanguageContext.Provider
       value={{
@@ -78,6 +99,9 @@ export function LanguageProvider({
         setLanguage,
         cycleLanguage,
         t,
+        tStatus,
+        tCategory,
+        tPayment,
         languages: SUPPORTED_LANGUAGES,
       }}
     >

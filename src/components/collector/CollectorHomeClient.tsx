@@ -51,7 +51,7 @@ export function CollectorHomeClient({
   activeLotsCount,
   recentTransactions,
 }: CollectorHomeClientProps) {
-  const { t } = useLanguage();
+  const { t, tStatus, tCategory, tPayment } = useLanguage();
 
   return (
     <div className="flex flex-col flex-1 pb-4 bg-white">
@@ -66,7 +66,7 @@ export function CollectorHomeClient({
               {t("welcomeBack")}
             </span>
             <h2 className="text-lg font-bold text-slate-900">
-              {collector?.name || "Scrap Collector"}
+              {collector?.name || t("defaultCollectorName")}
             </h2>
           </div>
           <span className="text-[11px] px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-600 font-medium flex items-center gap-1">
@@ -84,7 +84,7 @@ export function CollectorHomeClient({
             <div className="space-y-1">
               <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm">
                 <Sparkles className="w-3 h-3 text-blue-200" />
-                <span>Instant Benchmark Rates</span>
+                <span>{t("instantBenchmarkRates")}</span>
               </div>
               <h3 className="text-lg font-bold text-white leading-tight">
                 {t("logNewLotTitle")}
@@ -151,7 +151,7 @@ export function CollectorHomeClient({
               {t("activeLotsTitle")} ({activeLotsCount})
             </span>
             <Link href="/collector/ledger" className="text-xs text-blue-600 font-semibold hover:underline">
-              See all
+              {t("seeAll")}
             </Link>
           </div>
 
@@ -182,11 +182,11 @@ export function CollectorHomeClient({
                               : "bg-blue-50 text-blue-700 border border-blue-200"
                           }`}
                         >
-                          {tx.transactionStatus}
+                          {tStatus(tx.transactionStatus)}
                         </span>
                       </div>
                       <p className="text-[11px] text-slate-500 mt-0.5">
-                        {tx.materialCategory} • {tx.weightKg} kg
+                        {tCategory(tx.materialCategory)} • {tx.weightKg} {t("weightUnit")}
                       </p>
                     </div>
                   </div>
@@ -196,7 +196,7 @@ export function CollectorHomeClient({
                       ₹{(tx.finalValue || tx.quotedValue).toLocaleString("en-IN")}
                     </p>
                     <span className="text-[10px] text-slate-400">
-                      {tx.paymentStatus}
+                      {tPayment(tx.paymentStatus)}
                     </span>
                   </div>
                 </div>

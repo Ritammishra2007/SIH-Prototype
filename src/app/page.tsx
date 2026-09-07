@@ -7,7 +7,7 @@ import { LanguageSelector } from "@/components/LanguageSelector";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function RolePickerPage() {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
 
   // Clean localized role descriptions (Strictly single language at a time)
   const roleText = {
@@ -61,13 +61,13 @@ export default function RolePickerPage() {
   };
 
   return (
-    <PhoneShell badge="CPCB Verified">
+    <PhoneShell badge={t("cpcbVerified")}>
       <div className="flex flex-col justify-between flex-1 py-1">
         {/* Top Bar with Language Selector */}
         <div className="flex items-center justify-between pb-2">
           <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-[11px] text-blue-700 font-semibold">
             <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-            <span>National Circularity Portal</span>
+            <span>{t("nationalCircularityPortal")}</span>
           </div>
           <LanguageSelector />
         </div>
@@ -182,7 +182,7 @@ export default function RolePickerPage() {
         {/* Footer info note */}
         <div className="text-center pt-3 pb-1">
           <p className="text-[11px] text-slate-400">
-            Demonstration environment • Zero external APIs required
+            {t("demoNoticeFooter")}
           </p>
         </div>
       </div>

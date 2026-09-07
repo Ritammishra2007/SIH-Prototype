@@ -245,7 +245,7 @@ export default function CollectorLoginPage() {
                   onClick={() => setOtp(["4", "9", "1", "2"])}
                   className="text-[11px] font-bold text-blue-700 underline ml-2 shrink-0 hover:text-blue-900"
                 >
-                  Auto-fill 4912
+                  {t("autoFillDemoOtp")}
                 </button>
               </div>
 
@@ -254,7 +254,7 @@ export default function CollectorLoginPage() {
                 disabled={loading}
                 className="w-full mt-3 py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 disabled:opacity-50 text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-md shadow-blue-500/20 transition-all active:scale-[0.98]"
               >
-                <span>{loading ? "Verifying..." : t("verifyBtn")}</span>
+                <span>{loading ? t("verifying") : t("verifyBtn")}</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </form>

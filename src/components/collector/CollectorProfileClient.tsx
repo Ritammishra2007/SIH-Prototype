@@ -54,10 +54,10 @@ export function CollectorProfileClient({
             <div>
               <div className="flex items-center gap-1.5">
                 <h3 className="text-base font-bold text-slate-900">
-                  {collector?.name || "Scrap Collector"}
+                  {collector?.name || t("defaultCollectorName")}
                 </h3>
                 <span className="text-[9px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold border border-emerald-200">
-                  REGISTERED
+                  {t("registeredBadge")}
                 </span>
               </div>
               <p className="text-xs text-slate-500 mt-0.5 flex items-center gap-1">
@@ -142,8 +142,8 @@ export function CollectorProfileClient({
           </div>
 
           <div className="p-2.5 rounded-xl bg-emerald-100/60 border border-emerald-200 flex items-center justify-between text-[11px] text-emerald-900 font-medium">
-            <span>Total Formalized Scrap</span>
-            <span className="font-bold text-slate-900">{totalKg.toFixed(1)} kg ({totalLots} lots)</span>
+            <span>{t("totalFormalizedScrap")}</span>
+            <span className="font-bold text-slate-900">{totalKg.toFixed(1)} {t("weightUnit")} ({totalLots} {t("totalLotsCount")})</span>
           </div>
         </div>
 

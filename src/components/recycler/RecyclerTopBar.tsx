@@ -2,6 +2,7 @@
 
 import React from "react";
 import { LogoutButton } from "@/components/LogoutButton";
+import { LanguageSelector } from "@/components/LanguageSelector";
 import { ArrowLeft } from "lucide-react";
 
 interface RecyclerTopBarProps {
@@ -39,6 +40,7 @@ export function RecyclerTopBar({
               {registrationNumber}
             </span>
           )}
+          <LanguageSelector />
           <LogoutButton />
         </div>
       </div>

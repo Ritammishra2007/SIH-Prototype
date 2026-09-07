@@ -37,7 +37,7 @@ export function CollectorLedgerClient({
 }: {
   transactions: TransactionItem[];
 }) {
-  const { t } = useLanguage();
+  const { t, tStatus, tCategory, tPayment } = useLanguage();
   const [filter, setFilter] = useState<"ALL" | "PENDING" | "PAID">("ALL");
   const [selectedTx, setSelectedTx] = useState<TransactionItem | null>(null);
 
@@ -64,12 +64,14 @@ export function CollectorLedgerClient({
         <div className="grid grid-cols-2 gap-3">
           <div className="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-sm">
             <span className="text-[10px] text-slate-500 uppercase font-semibold block">
-              Total Volume
+              {t("totalVolume")}
             </span>
             <p className="text-xl font-bold text-slate-900 mt-0.5">
               ₹{totalValue.toLocaleString("en-IN")}
             </p>
-            <span className="text-[11px] text-emerald-600 font-medium">{transactions.length} Total Lots</span>
+            <span className="text-[11px] text-emerald-600 font-medium">
+              {transactions.length} {t("totalLotsCount")}
+            </span>
           </div>
 
           <div className="p-3.5 rounded-2xl bg-blue-50/60 border border-blue-200 shadow-sm">
@@ -79,7 +81,7 @@ export function CollectorLedgerClient({
             <p className="text-xl font-bold text-blue-700 mt-0.5">
               ₹{pendingValue.toLocaleString("en-IN")}
             </p>
-            <span className="text-[11px] text-blue-600">Awaiting payout</span>
+            <span className="text-[11px] text-blue-600">{t("awaitingPayout")}</span>
           </div>
         </div>
 
@@ -97,10 +99,10 @@ export function CollectorLedgerClient({
               }`}
             >
               {status === "ALL"
-                ? "All Lots"
+                ? t("filterAll")
                 : status === "PENDING"
-                ? "Pending Payout"
-                : "Paid to Cash/UPI"}
+                ? t("filterPending")
+                : t("filterPaid")}
             </button>
           ))}
         </div>
@@ -140,11 +142,11 @@ export function CollectorLedgerClient({
                                 : "bg-blue-50 text-blue-700 border border-blue-200"
                             }`}
                           >
-                            {tx.transactionStatus}
+                            {tStatus(tx.transactionStatus)}
                           </span>
                         </div>
                         <p className="text-xs font-medium text-slate-600 mt-0.5">
-                          {tx.materialCategory} • {tx.weightKg} kg
+                          {tCategory(tx.materialCategory)} • {tx.weightKg} {t("weightUnit")}
                         </p>
                       </div>
                     </div>
@@ -160,7 +162,7 @@ export function CollectorLedgerClient({
                             : "bg-amber-50 text-amber-700 border border-amber-200"
                         }`}
                       >
-                        {isPaid ? "PAID" : "PENDING"}
+                        {tPayment(tx.paymentStatus)}
                       </span>
                     </div>
                   </div>
@@ -168,11 +170,11 @@ export function CollectorLedgerClient({
                   {/* Recycler & Traceability reference row */}
                   <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
                     <span className="truncate max-w-[200px]">
-                      {tx.recycler?.name || "Pending assignment"}
+                      {tx.recycler?.name || t("pendingAssignment")}
                     </span>
                     <span className="text-blue-600 font-semibold flex items-center gap-0.5">
                       <QrCode className="w-3.5 h-3.5" />
-                      <span>View Code</span>
+                      <span>{t("viewCodeBtn")}</span>
                       <ChevronRight className="w-3 h-3" />
                     </span>
                   </div>
@@ -181,7 +183,7 @@ export function CollectorLedgerClient({
             })
           ) : (
             <div className="p-8 text-center rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-500">
-              No transactions matching filter.
+              {t("noFilteredTransactions")}
             </div>
           )}
         </div>
@@ -194,10 +196,10 @@ export function CollectorLedgerClient({
             <div className="flex items-center justify-between">
               <div>
                 <span className="text-[10px] text-blue-700 font-bold uppercase tracking-wider">
-                  Handover Pass
+                  {t("handoverPassTitle")}
                 </span>
                 <h3 className="text-base font-bold text-slate-900">
-                  Lot {selectedTx.lotId}
+                  {t("lotIdLabel")} {selectedTx.lotId}
                 </h3>
               </div>
               <button
@@ -226,25 +228,25 @@ export function CollectorLedgerClient({
 
             <div className="space-y-2 text-xs">
               <div className="flex justify-between pb-1 border-b border-slate-100 text-slate-700">
-                <span className="text-slate-500">Reference</span>
+                <span className="text-slate-500">{t("referenceLabel")}</span>
                 <span className="font-mono font-bold text-blue-700">
                   {selectedTx.traceability?.handoverReference || "REF-OKH-DEFAULT"}
                 </span>
               </div>
               <div className="flex justify-between pb-1 border-b border-slate-100 text-slate-700">
-                <span className="text-slate-500">Fallback OTP</span>
+                <span className="text-slate-500">{t("fallbackOtpTitle")}</span>
                 <span className="font-mono font-bold text-blue-700 tracking-widest text-sm">
                   {selectedTx.traceability?.otpCode || "4821"}
                 </span>
               </div>
               <div className="flex justify-between pb-1 border-b border-slate-100 text-slate-700">
-                <span className="text-slate-500">Recycler</span>
+                <span className="text-slate-500">{t("designatedRecycler")}</span>
                 <span className="font-medium text-slate-900 truncate max-w-[180px]">
                   {selectedTx.recycler?.name}
                 </span>
               </div>
               <div className="flex justify-between pt-0.5 text-slate-700">
-                <span className="text-slate-500">Quoted Payout</span>
+                <span className="text-slate-500">{t("quotedPayout")}</span>
                 <span className="font-bold text-blue-700 text-sm">
                   ₹{(selectedTx.finalValue || selectedTx.quotedValue).toLocaleString("en-IN")}
                 </span>
@@ -256,7 +258,7 @@ export function CollectorLedgerClient({
               onClick={() => setSelectedTx(null)}
               className="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold border border-slate-200 transition"
             >
-              Close
+              {t("closeBtn")}
             </button>
           </div>
         </div>
