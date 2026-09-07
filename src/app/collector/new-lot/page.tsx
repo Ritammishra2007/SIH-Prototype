@@ -636,11 +636,17 @@ export default function NewLotWizardPage() {
                   <p className="text-[11px] text-slate-500 font-medium">
                     {t("fallbackOtpTitle")}
                   </p>
-                  <div className="flex justify-center gap-2 font-mono py-0.5">
+                  <div className="flex items-center justify-center gap-2 font-mono py-0.5 mx-auto w-fit">
                     {otpCode.split("").map((digit, i) => (
                       <span
                         key={i}
-                        className="w-9 h-10 rounded-lg bg-white border border-slate-300 flex items-center justify-center text-blue-700 font-bold text-lg shadow-xs"
+                        style={{
+                          width: "38px",
+                          height: "42px",
+                          minWidth: "38px",
+                          maxWidth: "38px",
+                        }}
+                        className="w-[38px] h-[42px] min-w-0 max-w-[38px] shrink-0 rounded-lg bg-white border border-slate-300 flex items-center justify-center text-blue-700 font-bold text-lg shadow-xs"
                       >
                         {digit}
                       </span>

@@ -211,18 +211,27 @@ export default function CollectorLoginPage() {
                 </p>
               </div>
 
-              {/* 4 Digit Boxes - compact, well-proportioned */}
-              <div className="flex justify-center gap-2.5 py-1">
+              {/* 4 Digit Boxes - compact, strictly fixed dimensions */}
+              <div className="flex items-center justify-center gap-3 py-3 mx-auto w-fit">
                 {[0, 1, 2, 3].map((idx) => (
                   <input
                     key={idx}
                     id={`otp-input-${idx}`}
                     type="tel"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    size={1}
                     maxLength={1}
                     value={otp[idx]}
                     onChange={(e) => handleOtpChange(idx, e.target.value)}
                     onKeyDown={(e) => handleOtpKeyDown(idx, e)}
-                    className="w-11 h-12 text-center text-xl font-mono font-bold rounded-lg bg-slate-50 border border-slate-300 text-slate-900 focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 focus:outline-none transition shadow-xs"
+                    style={{
+                      width: "44px",
+                      height: "48px",
+                      minWidth: "44px",
+                      maxWidth: "44px",
+                    }}
+                    className="w-[44px] h-[48px] min-w-0 max-w-[44px] shrink-0 text-center text-xl font-mono font-bold rounded-xl bg-slate-50 border border-slate-300 text-slate-900 focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100 focus:outline-none transition shadow-sm"
                     autoFocus={idx === 0}
                   />
                 ))}

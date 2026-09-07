@@ -350,17 +350,26 @@ export function RecyclerVerifyClient() {
                       </div>
                     )}
 
-                    <div className="flex justify-center gap-2 py-0.5">
+                    <div className="flex items-center justify-center gap-2.5 py-1 mx-auto w-fit">
                       {[0, 1, 2, 3].map((idx) => (
                         <input
                           key={idx}
                           id={`recycler-otp-${idx}`}
                           type="tel"
+                          inputMode="numeric"
+                          pattern="[0-9]*"
+                          size={1}
                           maxLength={1}
                           value={otpDigits[idx]}
                           onChange={(e) => handleOtpChange(idx, e.target.value)}
                           onKeyDown={(e) => handleOtpKeyDown(idx, e)}
-                          className="w-9 h-10 text-center text-lg font-mono font-bold rounded-lg bg-white border border-slate-300 text-slate-900 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 focus:outline-none transition shadow-xs"
+                          style={{
+                            width: "42px",
+                            height: "46px",
+                            minWidth: "42px",
+                            maxWidth: "42px",
+                          }}
+                          className="w-[42px] h-[46px] min-w-0 max-w-[42px] shrink-0 text-center text-lg font-mono font-bold rounded-lg bg-white border border-slate-300 text-slate-900 focus:border-blue-600 focus:ring-2 focus:ring-blue-100 focus:outline-none transition shadow-xs"
                         />
                       ))}
                     </div>
