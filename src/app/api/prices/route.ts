@@ -59,8 +59,11 @@ export async function GET(request: Request) {
         return {
           id: current?.id,
           materialCategory: cat,
+          subCategory: current?.subCategory ?? null,
           formalPricePerKg: current?.formalPricePerKg ?? 0,
           informalPricePerKg: current?.informalPricePerKg ?? 0,
+          priceMin: current?.priceMin ?? null,
+          priceMax: current?.priceMax ?? null,
           unit: current?.unit ?? "kg",
           previousFormalPricePerKg: previous?.formalPricePerKg ?? null,
           previousInformalPricePerKg: previous?.informalPricePerKg ?? null,

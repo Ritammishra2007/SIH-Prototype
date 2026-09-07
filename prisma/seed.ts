@@ -124,54 +124,145 @@ async function main() {
 
   // 3. Seed Prices for all 6 categories (Exact numbers per brief/PPT)
   // PCB ₹180→₹260, Battery ₹90→₹145, Cable ₹60→₹95, CRT/LCD ₹20→₹55, Motor/Magnet ₹110→₹170, Mixed Plastic ₹12→₹22
+  // 3. Seed Prices for all 6 categories with realistic subcategories and market ranges
   const priceData = [
+    // PCB
     {
       materialCategory: MaterialCategory.PCB,
+      subCategory: "High-Grade Server & Telecom Cards",
       location: "Delhi NCR Scrap Hub",
       informalPricePerKg: 180.0,
       formalPricePerKg: 260.0,
+      priceMin: 160.0,
+      priceMax: 300.0,
       unit: "kg",
       recyclerId: recyclerGreenLoop.id,
     },
     {
+      materialCategory: MaterialCategory.PCB,
+      subCategory: "Consumer Appliance & TV Motherboards",
+      location: "Delhi NCR Scrap Hub",
+      informalPricePerKg: 110.0,
+      formalPricePerKg: 165.0,
+      priceMin: 95.0,
+      priceMax: 185.0,
+      unit: "kg",
+      recyclerId: recyclerGreen.id,
+    },
+    // BATTERY (e.g. Lithium-ion vs Lead-acid)
+    {
       materialCategory: MaterialCategory.BATTERY,
+      subCategory: "Lead-Acid (UPS & Automotive)",
       location: "Delhi NCR Scrap Hub",
       informalPricePerKg: 90.0,
       formalPricePerKg: 145.0,
+      priceMin: 80.0,
+      priceMax: 160.0,
       unit: "kg",
       recyclerId: recyclerBharat.id,
     },
     {
+      materialCategory: MaterialCategory.BATTERY,
+      subCategory: "Lithium-Ion (EV & Smartphone Packs)",
+      location: "Delhi NCR Scrap Hub",
+      informalPricePerKg: 150.0,
+      formalPricePerKg: 240.0,
+      priceMin: 135.0,
+      priceMax: 270.0,
+      unit: "kg",
+      recyclerId: recyclerBharat.id,
+    },
+    // CABLE
+    {
       materialCategory: MaterialCategory.CABLE,
+      subCategory: "Heavy Industrial Copper Wiring",
       location: "Delhi NCR Scrap Hub",
       informalPricePerKg: 60.0,
       formalPricePerKg: 95.0,
+      priceMin: 50.0,
+      priceMax: 115.0,
       unit: "kg",
       recyclerId: recyclerShakti.id,
     },
     {
+      materialCategory: MaterialCategory.CABLE,
+      subCategory: "Data & Appliance Flexible Wiring",
+      location: "Delhi NCR Scrap Hub",
+      informalPricePerKg: 35.0,
+      formalPricePerKg: 60.0,
+      priceMin: 30.0,
+      priceMax: 75.0,
+      unit: "kg",
+      recyclerId: recyclerShakti.id,
+    },
+    // CRT / LCD
+    {
       materialCategory: MaterialCategory.CRT_LCD,
+      subCategory: "LCD & LED Flat Panels",
       location: "Delhi NCR Scrap Hub",
       informalPricePerKg: 20.0,
       formalPricePerKg: 55.0,
+      priceMin: 15.0,
+      priceMax: 65.0,
       unit: "kg",
       recyclerId: recyclerGreen.id,
     },
     {
+      materialCategory: MaterialCategory.CRT_LCD,
+      subCategory: "Cathode Ray Tube Glass Funnels",
+      location: "Delhi NCR Scrap Hub",
+      informalPricePerKg: 10.0,
+      formalPricePerKg: 28.0,
+      priceMin: 8.0,
+      priceMax: 35.0,
+      unit: "kg",
+      recyclerId: recyclerGreen.id,
+    },
+    // MOTOR & MAGNET
+    {
       materialCategory: MaterialCategory.MOTOR_MAGNET,
+      subCategory: "Rare-Earth Neodymium HDD Magnets",
       location: "Delhi NCR Scrap Hub",
       informalPricePerKg: 110.0,
       formalPricePerKg: 170.0,
+      priceMin: 95.0,
+      priceMax: 200.0,
       unit: "kg",
       recyclerId: recyclerShakti.id,
     },
     {
+      materialCategory: MaterialCategory.MOTOR_MAGNET,
+      subCategory: "Induction Stator Motor Assemblies",
+      location: "Delhi NCR Scrap Hub",
+      informalPricePerKg: 65.0,
+      formalPricePerKg: 105.0,
+      priceMin: 55.0,
+      priceMax: 125.0,
+      unit: "kg",
+      recyclerId: recyclerShakti.id,
+    },
+    // MIXED PLASTIC
+    {
       materialCategory: MaterialCategory.MIXED_PLASTIC,
+      subCategory: "Clean ABS & HIPS Device Casings",
       location: "Delhi NCR Scrap Hub",
       informalPricePerKg: 12.0,
       formalPricePerKg: 22.0,
+      priceMin: 10.0,
+      priceMax: 28.0,
       unit: "kg",
       recyclerId: recyclerGreen.id,
+    },
+    {
+      materialCategory: MaterialCategory.MIXED_PLASTIC,
+      subCategory: "Shredded Polymer & Flame-Retardant Mix",
+      location: "Delhi NCR Scrap Hub",
+      informalPricePerKg: 7.0,
+      formalPricePerKg: 14.0,
+      priceMin: 5.0,
+      priceMax: 18.0,
+      unit: "kg",
+      recyclerId: recyclerBharat.id,
     },
   ];
 
@@ -182,25 +273,26 @@ async function main() {
   // Seed historical price records from 7 days ago to enable trend derivation
   const oneWeekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
   const historicalPriceData = [
-    { materialCategory: MaterialCategory.PCB, location: "Delhi NCR Scrap Hub", informalPricePerKg: 175.0, formalPricePerKg: 250.0, unit: "kg", date: oneWeekAgo },
-    { materialCategory: MaterialCategory.BATTERY, location: "Delhi NCR Scrap Hub", informalPricePerKg: 95.0, formalPricePerKg: 150.0, unit: "kg", date: oneWeekAgo },
-    { materialCategory: MaterialCategory.CABLE, location: "Delhi NCR Scrap Hub", informalPricePerKg: 55.0, formalPricePerKg: 90.0, unit: "kg", date: oneWeekAgo },
-    { materialCategory: MaterialCategory.CRT_LCD, location: "Delhi NCR Scrap Hub", informalPricePerKg: 20.0, formalPricePerKg: 55.0, unit: "kg", date: oneWeekAgo },
-    { materialCategory: MaterialCategory.MOTOR_MAGNET, location: "Delhi NCR Scrap Hub", informalPricePerKg: 105.0, formalPricePerKg: 160.0, unit: "kg", date: oneWeekAgo },
-    { materialCategory: MaterialCategory.MIXED_PLASTIC, location: "Delhi NCR Scrap Hub", informalPricePerKg: 14.0, formalPricePerKg: 24.0, unit: "kg", date: oneWeekAgo },
+    { materialCategory: MaterialCategory.PCB, subCategory: "High-Grade Server & Telecom Cards", location: "Delhi NCR Scrap Hub", informalPricePerKg: 175.0, formalPricePerKg: 250.0, priceMin: 155.0, priceMax: 290.0, unit: "kg", date: oneWeekAgo },
+    { materialCategory: MaterialCategory.BATTERY, subCategory: "Lead-Acid (UPS & Automotive)", location: "Delhi NCR Scrap Hub", informalPricePerKg: 95.0, formalPricePerKg: 150.0, priceMin: 85.0, priceMax: 165.0, unit: "kg", date: oneWeekAgo },
+    { materialCategory: MaterialCategory.CABLE, subCategory: "Heavy Industrial Copper Wiring", location: "Delhi NCR Scrap Hub", informalPricePerKg: 55.0, formalPricePerKg: 90.0, priceMin: 45.0, priceMax: 105.0, unit: "kg", date: oneWeekAgo },
+    { materialCategory: MaterialCategory.CRT_LCD, subCategory: "LCD & LED Flat Panels", location: "Delhi NCR Scrap Hub", informalPricePerKg: 20.0, formalPricePerKg: 55.0, priceMin: 15.0, priceMax: 65.0, unit: "kg", date: oneWeekAgo },
+    { materialCategory: MaterialCategory.MOTOR_MAGNET, subCategory: "Rare-Earth Neodymium HDD Magnets", location: "Delhi NCR Scrap Hub", informalPricePerKg: 105.0, formalPricePerKg: 160.0, priceMin: 90.0, priceMax: 190.0, unit: "kg", date: oneWeekAgo },
+    { materialCategory: MaterialCategory.MIXED_PLASTIC, subCategory: "Clean ABS & HIPS Device Casings", location: "Delhi NCR Scrap Hub", informalPricePerKg: 14.0, formalPricePerKg: 24.0, priceMin: 11.0, priceMax: 30.0, unit: "kg", date: oneWeekAgo },
   ];
 
   for (const hp of historicalPriceData) {
     await prisma.price.create({ data: hp });
   }
 
-  console.log("✅ Seeded 6 Benchmark Price Records + 6 Historical Records (Trends & Spreads)");
+  console.log("✅ Seeded Benchmark Price Records with subcategories & market ranges + 6 Historical Records");
 
   // 4. Seed Sample Materials catalog items
   await prisma.material.createMany({
     data: [
       {
         category: MaterialCategory.PCB,
+        subCategory: "High-Grade Server & Telecom Cards",
         description: "Motherboards, telecom server cards & RAM IC boards",
         weightKg: 24.5,
         condition: "De-soldered / Clean boards",
@@ -209,6 +301,7 @@ async function main() {
       },
       {
         category: MaterialCategory.BATTERY,
+        subCategory: "Lithium-Ion (EV & Smartphone Packs)",
         description: "Assorted UPS Lead-acid & Mobile Li-ion packs",
         weightKg: 42.0,
         condition: "Intact housing, sealed terminals",
@@ -217,6 +310,7 @@ async function main() {
       },
       {
         category: MaterialCategory.CABLE,
+        subCategory: "Heavy Industrial Copper Wiring",
         description: "Copper core flexible wiring & appliance cords",
         weightKg: 18.0,
         condition: "Stripped & bundled",
@@ -225,6 +319,7 @@ async function main() {
       },
       {
         category: MaterialCategory.CRT_LCD,
+        subCategory: "LCD & LED Flat Panels",
         description: "LCD laptop panels and desktop display glass",
         weightKg: 35.0,
         condition: "Unbroken display modules",
@@ -233,6 +328,7 @@ async function main() {
       },
       {
         category: MaterialCategory.MOTOR_MAGNET,
+        subCategory: "Rare-Earth Neodymium HDD Magnets",
         description: "Hard drive neodymium magnets & induction motors",
         weightKg: 15.0,
         condition: "Extracted magnetic assemblies",
@@ -241,6 +337,7 @@ async function main() {
       },
       {
         category: MaterialCategory.MIXED_PLASTIC,
+        subCategory: "Clean ABS & HIPS Device Casings",
         description: "ABS/HIPS printer and monitor chassis casings",
         weightKg: 50.0,
         condition: "Crushed & segregated",
@@ -296,6 +393,7 @@ async function main() {
       collectionLocation: "Seelampur Scrap Mandi, Gate 2",
       handoverLocation: "GreenLoop Depot, Okhla Phase II",
       paymentStatus: PaymentStatus.PAID,
+      paymentMethod: "DIGITAL",
       transactionStatus: TransactionStatus.COMPLETED,
       createdAt: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000), // 4 days ago
     },

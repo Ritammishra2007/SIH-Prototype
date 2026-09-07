@@ -18,6 +18,11 @@ export enum PaymentStatus {
   PAID = "PAID",
 }
 
+export enum PaymentMethod {
+  CASH = "CASH",
+  DIGITAL = "DIGITAL",
+}
+
 export enum TransactionStatus {
   QUOTED = "QUOTED",
   MATCHED = "MATCHED",

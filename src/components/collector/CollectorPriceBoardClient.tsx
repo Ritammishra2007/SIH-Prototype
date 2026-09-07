@@ -24,8 +24,11 @@ import {
 export interface PriceBoardItem {
   id?: string;
   materialCategory: string;
+  subCategory?: string | null;
   formalPricePerKg: number;
   informalPricePerKg: number;
+  priceMin?: number | null;
+  priceMax?: number | null;
   unit: string;
   previousFormalPricePerKg: number | null;
   previousInformalPricePerKg: number | null;
@@ -237,6 +240,11 @@ export function CollectorPriceBoardClient({
                       <p className="text-[11px] text-slate-500 line-clamp-1 mt-0.5">
                         {t(meta.descKey as any)}
                       </p>
+                      {item.subCategory && (
+                        <span className="inline-block text-[10px] font-semibold text-blue-700 bg-blue-50/80 px-2 py-0.5 rounded border border-blue-200 mt-1">
+                          {item.subCategory}
+                        </span>
+                      )}
                     </div>
                   </div>
 
@@ -304,6 +312,19 @@ export function CollectorPriceBoardClient({
                     </span>
                   </div>
                 </div>
+
+                {/* Approximate Market Range Row */}
+                {item.priceMin !== null &&
+                  item.priceMin !== undefined &&
+                  item.priceMax !== null &&
+                  item.priceMax !== undefined && (
+                    <div className="mt-2.5 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center justify-between text-[11px]">
+                      <span className="text-slate-500 font-medium">Indicative Market Range:</span>
+                      <span className="font-bold text-slate-800">
+                        ₹{item.priceMin} – ₹{item.priceMax} <span className="font-normal text-slate-500">/ {item.unit}</span>
+                      </span>
+                    </div>
+                  )}
 
                 {/* Footer: Trend Indicator & Direct Action */}
                 <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs">

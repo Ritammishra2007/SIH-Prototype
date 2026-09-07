@@ -23,11 +23,16 @@ export async function POST(
       return NextResponse.json({ error: "Transaction not found" }, { status: 404 });
     }
 
-    // Flip paymentStatus to PAID and transactionStatus to COMPLETED
+    const body = await request.json().catch(() => ({}));
+    const paymentMethod =
+      body.paymentMethod === "CASH" ? "CASH" : "DIGITAL";
+
+    // Flip paymentStatus to PAID, record paymentMethod, and mark transactionStatus as COMPLETED
     const updated = await prisma.transaction.update({
       where: { id },
       data: {
         paymentStatus: PaymentStatus.PAID,
+        paymentMethod: paymentMethod,
         transactionStatus: TransactionStatus.COMPLETED,
         finalValue: transaction.finalValue || transaction.quotedValue,
       },

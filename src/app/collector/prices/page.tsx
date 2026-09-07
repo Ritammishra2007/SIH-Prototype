@@ -48,8 +48,11 @@ export default async function CollectorPriceBoardPage() {
       return {
         id: current?.id,
         materialCategory: cat,
+        subCategory: current?.subCategory ?? null,
         formalPricePerKg: currentFormal,
         informalPricePerKg: currentInformal,
+        priceMin: current?.priceMin ?? null,
+        priceMax: current?.priceMax ?? null,
         unit: current?.unit ?? "kg",
         previousFormalPricePerKg: previousFormal,
         previousInformalPricePerKg: previousInformal,

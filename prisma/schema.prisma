@@ -10,6 +10,7 @@ datasource db {
 model Material {
   id             String   @id @default(cuid())
   category       String   // PCB, BATTERY, CABLE, CRT_LCD, MOTOR_MAGNET, MIXED_PLASTIC
+  subCategory    String?  // Specific subtype e.g. "Lithium-ion", "Motherboards", "Clean ABS"
   description    String
   imageUrl       String?
   weightKg       Float
@@ -22,10 +23,13 @@ model Material {
 model Price {
   id                 String    @id @default(cuid())
   materialCategory   String    // PCB, BATTERY, CABLE, CRT_LCD, MOTOR_MAGNET, MIXED_PLASTIC
+  subCategory        String?   // e.g. "Lithium-ion", "Lead-acid", "Telecom Server PCBs"
   location           String
   date               DateTime  @default(now())
   informalPricePerKg Float
   formalPricePerKg   Float
+  priceMin           Float?    // Indicative market low
+  priceMax           Float?    // Indicative market high
   unit               String    @default("kg")
   recyclerId         String?
   recycler           Recycler? @relation(fields: [recyclerId], references: [id])
@@ -67,6 +71,7 @@ model Transaction {
   collectionLocation String
   handoverLocation   String?
   paymentStatus      String        @default("PENDING") // PENDING, PAID
+  paymentMethod      String?       // CASH, DIGITAL
   transactionStatus  String        @default("QUOTED") // QUOTED, MATCHED, HANDED_OVER, VERIFIED, COMPLETED
   traceability       Traceability?
   createdAt          DateTime      @default(now())

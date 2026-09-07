@@ -21,8 +21,11 @@ import {
 interface PriceRecord {
   id: string;
   materialCategory: string;
+  subCategory?: string | null;
   informalPricePerKg: number;
   formalPricePerKg: number;
+  priceMin?: number | null;
+  priceMax?: number | null;
   spread: number;
   percentGain: number;
   unit: string;
@@ -238,14 +241,29 @@ export function AdminPricesClient({
                 <tbody className="divide-y divide-slate-100 text-slate-800">
                   {prices.map((p) => (
                     <tr key={p.id} className="hover:bg-slate-50 transition">
-                      <td className="py-3 px-3 font-bold text-slate-900">
-                        {p.materialCategory}
+                      <td className="py-3 px-3">
+                        <span className="font-bold text-slate-900 block">{p.materialCategory}</span>
+                        {p.subCategory && (
+                          <span className="text-[10px] text-blue-700 block truncate max-w-[170px]">
+                            {p.subCategory}
+                          </span>
+                        )}
                       </td>
                       <td className="py-3 px-3 font-mono text-slate-500">
                         ₹{p.informalPricePerKg}/kg
                       </td>
-                      <td className="py-3 px-3 font-mono font-bold text-blue-700">
-                        ₹{p.formalPricePerKg}/kg
+                      <td className="py-3 px-3">
+                        <span className="font-mono font-bold text-blue-700 block">
+                          ₹{p.formalPricePerKg}/kg
+                        </span>
+                        {p.priceMin !== null &&
+                          p.priceMin !== undefined &&
+                          p.priceMax !== null &&
+                          p.priceMax !== undefined && (
+                            <span className="text-[10px] text-slate-400 block font-mono">
+                              Range: ₹{p.priceMin}–{p.priceMax}
+                            </span>
+                          )}
                       </td>
                       <td className="py-3 px-3">
                         <span className="px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-mono font-bold text-[10px] inline-flex items-center gap-0.5">

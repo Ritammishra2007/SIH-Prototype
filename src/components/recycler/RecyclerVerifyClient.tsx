@@ -26,6 +26,7 @@ interface LotTransaction {
   quotedValue: number;
   finalValue: number | null;
   paymentStatus: string;
+  paymentMethod?: string | null;
   transactionStatus: string;
   collectionLocation: string;
   collector: {
@@ -87,6 +88,7 @@ export function RecyclerVerifyClient() {
   const [gradeQuality, setGradeQuality] = useState<"A" | "B" | "C">("A");
   const [verifying, setVerifying] = useState(false);
   const [paying, setPaying] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState<"DIGITAL" | "CASH">("DIGITAL");
   const [paymentToast, setPaymentToast] = useState("");
 
   // Load inbound lots
@@ -215,11 +217,18 @@ export function RecyclerVerifyClient() {
     try {
       const res = await fetch(`/api/recycler/transactions/${selectedLot.id}/pay`, {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ paymentMethod }),
       });
       if (!res.ok) throw new Error("Failed to release payment");
       const data = await res.json();
       setSelectedLot(data.transaction);
-      setPaymentToast(data.message || `Payment of ₹${calculatedFinalValue.toLocaleString("en-IN")} released!`);
+      setPaymentToast(
+        data.message ||
+          `Payment of ₹${calculatedFinalValue.toLocaleString("en-IN")} released via ${
+            paymentMethod === "DIGITAL" ? "Digital UPI" : "Cash"
+          }!`
+      );
       setStage("SETTLED");
     } catch (err: any) {
       alert(err.message || "Payment release failed");
@@ -548,9 +557,57 @@ export function RecyclerVerifyClient() {
                     </div>
                   </div>
 
+                  {/* Payment Method Selector */}
+                  <div className="p-3.5 rounded-2xl bg-white border border-slate-200 space-y-2.5 shadow-sm text-left">
+                    <label className="text-[11px] font-bold text-slate-700 uppercase tracking-wider block">
+                      Disbursement Method
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setPaymentMethod("DIGITAL")}
+                        className={`p-3 rounded-xl border text-left transition flex flex-col justify-between ${
+                          paymentMethod === "DIGITAL"
+                            ? "bg-blue-50 border-blue-600 text-blue-900 ring-2 ring-blue-500/20"
+                            : "bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100"
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold">Digital / UPI</span>
+                          <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                        </div>
+                        <span className="text-[10px] text-slate-500 mt-1 leading-tight">
+                          Instant UPI transfer to phone
+                        </span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setPaymentMethod("CASH")}
+                        className={`p-3 rounded-xl border text-left transition flex flex-col justify-between ${
+                          paymentMethod === "CASH"
+                            ? "bg-blue-50 border-blue-600 text-blue-900 ring-2 ring-blue-500/20"
+                            : "bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100"
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold">Physical Cash</span>
+                          <span className="w-2 h-2 rounded-full bg-amber-500" />
+                        </div>
+                        <span className="text-[10px] text-slate-500 mt-1 leading-tight">
+                          Cash receipt at weighbridge gate
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+
                   <div className="p-3 rounded-xl bg-blue-50 border border-blue-200 text-xs text-blue-800 flex items-center gap-2">
                     <ShieldCheck className="w-4 h-4 text-blue-600 shrink-0" />
-                    <span>Payment simulates instant UPI settlement directly to collector&apos;s phone.</span>
+                    <span>
+                      {paymentMethod === "DIGITAL"
+                        ? "Settlement simulates instant UPI transfer directly to collector's mobile."
+                        : "Physical cash disbursement registered with timestamped gate voucher."}
+                    </span>
                   </div>
                 </div>
 
@@ -561,7 +618,11 @@ export function RecyclerVerifyClient() {
                   className="w-full py-3.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold text-base flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 transition-all active:scale-[0.98] disabled:opacity-50"
                 >
                   <IndianRupee className="w-5 h-5" />
-                  <span>{paying ? "Dispatching Payout..." : "Release Payment"}</span>
+                  <span>
+                    {paying
+                      ? "Disbursing Settlement..."
+                      : `Release Payment (${paymentMethod === "DIGITAL" ? "Digital UPI" : "Cash"})`}
+                  </span>
                 </button>
               </div>
             )}
@@ -590,8 +651,10 @@ export function RecyclerVerifyClient() {
                       <span className="font-bold text-slate-900">{selectedLot.collector.name}</span>
                     </div>
                     <div className="flex justify-between text-xs pb-1.5 border-b border-slate-200">
-                      <span className="text-slate-500">Payment Status</span>
-                      <span className="font-bold text-emerald-600">PAID (UPI)</span>
+                      <span className="text-slate-500">Disbursement</span>
+                      <span className="font-bold text-emerald-600">
+                        PAID ({selectedLot.paymentMethod === "CASH" || paymentMethod === "CASH" ? "Physical Cash" : "Digital UPI"})
+                      </span>
                     </div>
                     <div className="flex justify-between text-xs pt-1">
                       <span className="text-slate-500">Final Paid Value</span>

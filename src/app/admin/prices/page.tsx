@@ -16,8 +16,11 @@ export default async function AdminPricesPage() {
     return {
       id: p.id,
       materialCategory: p.materialCategory,
+      subCategory: p.subCategory,
       informalPricePerKg: p.informalPricePerKg,
       formalPricePerKg: p.formalPricePerKg,
+      priceMin: p.priceMin,
+      priceMax: p.priceMax,
       spread,
       percentGain,
       unit: p.unit,
