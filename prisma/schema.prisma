@@ -108,7 +108,7 @@ model Collector {
 model AdminUser {
   id        String   @id @default(cuid())
   email     String   @unique
-  name      String   @default("CPCB Officer")
+  name      String   @default("Administrator")
   password  String
   createdAt DateTime @default(now())
 }

@@ -392,11 +392,6 @@ export function RecyclerVerifyClient() {
                     </button>
                   </div>
                 </div>
-
-                <div className="p-3 rounded-xl bg-blue-50 border border-blue-200 text-xs text-blue-800 flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span>Proof of custody prevents fraudulent claims under CPCB regulations.</span>
-                </div>
               </div>
             )}
 

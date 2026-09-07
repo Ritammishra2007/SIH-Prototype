@@ -81,17 +81,9 @@ export function AdminOverviewClient({
       {/* Page Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-2 border-b border-slate-200">
         <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold text-slate-900">
-              National E-Waste Formalization Dashboard
-            </h1>
-            <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 font-bold uppercase border border-blue-200">
-              LIVE SURVEILLANCE
-            </span>
-          </div>
-          <p className="text-xs text-slate-500 mt-1">
-            Central Pollution Control Board (CPCB) • Delhi NCR Pilot Region
-          </p>
+          <h1 className="text-2xl font-bold text-slate-900">
+            Overview
+          </h1>
         </div>
 
         <div className="flex items-center gap-2">
@@ -99,13 +91,13 @@ export function AdminOverviewClient({
             href="/admin/recyclers"
             className="px-3.5 py-2 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 transition shadow-sm"
           >
-            Review Recycler Permits
+            Recycler Directory
           </Link>
           <Link
             href="/admin/prices"
             className="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-xs font-bold transition shadow-md shadow-blue-500/20"
           >
-            Surveillance Rates
+            Prices
           </Link>
         </div>
       </div>

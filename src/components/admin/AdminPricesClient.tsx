@@ -147,16 +147,8 @@ export function AdminPricesClient({
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-2 border-b border-slate-200">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">
-            Price Surveillance &amp; Market Spreads
+            Prices
           </h1>
-          <p className="text-xs text-slate-500 mt-1">
-            Tracking informal scrap mandi vs. authorized formal recycler benchmark rates
-          </p>
-        </div>
-
-        <div className="flex items-center gap-2 text-xs text-blue-700 bg-blue-50 px-3 py-1.5 rounded-xl border border-blue-200 font-medium">
-          <Sparkles className="w-4 h-4 text-blue-600" />
-          <span>Real-time benchmark sync to Collector &amp; Recycler apps</span>
         </div>
       </div>
 
@@ -167,9 +159,6 @@ export function AdminPricesClient({
             <h3 className="text-base font-bold text-slate-900">
               Market Rate Comparison (₹ / kg)
             </h3>
-            <p className="text-xs text-slate-500">
-              Visualizing the government-supported price premium per material category
-            </p>
           </div>
           <div className="flex items-center gap-4 text-xs">
             <span className="flex items-center gap-1.5 text-slate-500 font-medium">
@@ -305,14 +294,8 @@ export function AdminPricesClient({
                 <h3 className="text-sm font-bold text-slate-900">
                   Update Today&apos;s Price
                 </h3>
-                <p className="text-[10px] text-slate-500">
-                  Modify formal and informal benchmarks
-                </p>
               </div>
             </div>
-            <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 font-mono font-bold">
-              SURVEILLANCE
-            </span>
           </div>
 
           {statusMessage && (

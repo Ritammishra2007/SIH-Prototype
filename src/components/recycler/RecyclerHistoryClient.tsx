@@ -216,9 +216,6 @@ export function RecyclerHistoryClient({
           <div className="w-full max-w-[360px] bg-white border border-slate-200 rounded-3xl p-5 space-y-4 shadow-2xl relative">
             <div className="flex items-center justify-between">
               <div>
-                <span className="text-[10px] text-blue-700 font-bold uppercase tracking-wider">
-                  CPCB Audit Receipt
-                </span>
                 <h3 className="text-base font-bold text-slate-900">
                   Lot {selectedTx.lotId}
                 </h3>

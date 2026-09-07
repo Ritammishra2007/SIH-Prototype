@@ -148,14 +148,10 @@ export function CollectorProfileClient({
         </div>
 
         {/* App Version & Logout Button */}
-        <div className="pt-2 space-y-3">
+        <div className="pt-2">
           <div className="flex justify-center">
             <LogoutButton className="w-full py-3 px-4 rounded-xl bg-slate-100 hover:bg-rose-50 text-slate-700 hover:text-rose-600 text-xs font-bold border border-slate-200 hover:border-rose-200 transition active:scale-95 flex items-center justify-center gap-2" />
           </div>
-
-          <p className="text-[10px] text-slate-400 text-center">
-            RecyConnect Field v1.0.0 • National Circularity Network
-          </p>
         </div>
       </div>
     </div>

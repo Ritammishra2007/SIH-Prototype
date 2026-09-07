@@ -260,10 +260,6 @@ export default function CollectorLoginPage() {
             </form>
           )}
         </div>
-
-        <p className="text-[11px] text-slate-400 text-center mt-6">
-          RecyConnect Field • CPCB Circular Network
-        </p>
       </div>
     </div>
   );

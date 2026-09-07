@@ -72,7 +72,7 @@ export async function POST(request: Request) {
 
     const regNum =
       registrationNumber ||
-      `CPCB/EW-REG/${Math.floor(1000 + Math.random() * 9000)}`;
+      `REG-EW/${Math.floor(1000 + Math.random() * 9000)}`;
 
     const materialsArray = Array.isArray(materialsAccepted)
       ? materialsAccepted

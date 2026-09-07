@@ -28,7 +28,7 @@ async function main() {
       longitude: 77.2711,
       materialsAccepted: JSON.stringify(["PCB", "BATTERY", "CABLE", "MOTOR_MAGNET"]),
       authorizationStatus: AuthorizationStatus.AUTHORIZED,
-      registrationNumber: "CPCB/EW-2023/DL-0881",
+      registrationNumber: "REG/EW-2023/DL-0881",
       contactPhone: "+91 11 2638 4901",
       contactEmail: "greenloop@demo.com",
       offeredRateMultiplier: 1.08, // +8% bonus above formal rate
@@ -64,7 +64,7 @@ async function main() {
       longitude: 77.1260,
       materialsAccepted: JSON.stringify(["MOTOR_MAGNET", "CABLE", "PCB"]),
       authorizationStatus: AuthorizationStatus.AUTHORIZED,
-      registrationNumber: "DPCC/AUTH/2021/7732",
+      registrationNumber: "REG-AUTH/2021/7732",
       contactPhone: "+91 98100 44211",
       contactEmail: "info@shaktimetals.com",
       offeredRateMultiplier: 1.10, // +10%
@@ -82,7 +82,7 @@ async function main() {
       longitude: 77.3480,
       materialsAccepted: JSON.stringify(["BATTERY", "MIXED_PLASTIC"]),
       authorizationStatus: AuthorizationStatus.AUTHORIZED,
-      registrationNumber: "UPPCB/BATT-AUTH/2023/1102",
+      registrationNumber: "REG-BATT/2023/1102",
       contactPhone: "+91 99112 88344",
       contactEmail: "collection@bharatbattery.org",
       offeredRateMultiplier: 1.07, // +7%
@@ -100,7 +100,7 @@ async function main() {
       longitude: 77.0420,
       materialsAccepted: JSON.stringify(["PCB", "CABLE"]),
       authorizationStatus: AuthorizationStatus.PENDING, // PENDING for Admin review
-      registrationNumber: "DPCC/APPL-NEW/2024/9914",
+      registrationNumber: "REG-APPL/2024/9914",
       contactPhone: "+91 98711 00293",
       contactEmail: "urbanmetals.delhi@gmail.com",
       offeredRateMultiplier: 1.02,
@@ -116,7 +116,7 @@ async function main() {
   const adminUser = await prisma.adminUser.create({
     data: {
       email: "admin@demo.com",
-      name: "CPCB Officer (Delhi Region)",
+      name: "Administrator",
       password: hashPassword("admin1234"),
     },
   });

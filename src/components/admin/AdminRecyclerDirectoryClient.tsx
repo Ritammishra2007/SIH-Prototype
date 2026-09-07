@@ -161,11 +161,8 @@ export function AdminRecyclerDirectoryClient({
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-2 border-b border-slate-200">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">
-            Authorized Recycler Directory &amp; Permits
+            Recycler Directory
           </h1>
-          <p className="text-xs text-slate-500 mt-1">
-            Surveillance registry under Central Pollution Control Board (CPCB) E-Waste Regulations
-          </p>
         </div>
 
         <button
@@ -217,7 +214,7 @@ export function AdminRecyclerDirectoryClient({
           <Search className="w-4 h-4 text-slate-400 mr-2 shrink-0" />
           <input
             type="text"
-            placeholder="Search facility by name, location, or CPCB license number..."
+            placeholder="Search facility by name, location, or license number..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full bg-transparent text-slate-900 placeholder-slate-400 focus:outline-none text-xs"
@@ -404,7 +401,7 @@ export function AdminRecyclerDirectoryClient({
             </div>
 
             <p className="text-xs text-slate-500">
-              New facilities will be registered with status <strong className="text-blue-700">PENDING</strong> by default for CPCB inspection review.
+              New facilities will be registered with status <strong className="text-blue-700">PENDING</strong> by default.
             </p>
 
             {formError && (

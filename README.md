@@ -1,7 +1,7 @@
 # RecyConnect ♻️
 
-> **National E-Waste Circularity Platform**  
-> Connecting informal scrap collectors (kabaadiwalas) with authorized recycling facilities under Central Pollution Control Board (CPCB) surveillance.
+> **E-Waste Management & Recycling Platform**  
+> Connecting scrap collectors with authorized recycling facilities.
 
 ---
 
@@ -9,18 +9,18 @@
 
 - **Collector Portal (`/collector`)**: Field-optimized mobile app with:
   - 3-language selector (**English**, **हिन्दी**, **मराठी**) with 100% single-language rendering
-  - 5-step lot creation wizard with instant price comparisons against informal scrap dealers (+44% to +175% higher return)
-  - QR code generation and offline fallback OTP for secure chain-of-custody handovers
+  - 5-step lot creation wizard with price comparisons
+  - QR code generation and offline fallback OTP for handovers
   - Interactive earnings ledger and field safety tips
 - **Recycler Portal (`/recycler`)**: Authorized facility workflow with:
   - Real-time inbound processing queue
   - Intake scanner simulation and weighbridge scale calibration
   - Purity grading (Grade A / B / C) with automatic rate adjustments
-  - Instant digital payout settlement and CPCB audit receipt generator
-- **Admin Surveillance Console (`/admin`)**: Central regulatory oversight with:
-  - Diverted weight tracking and national e-waste category volume analytics
-  - Recycler registry with real-time status toggles (`AUTHORIZED`, `PENDING`, `REVOKED`)
-  - Live benchmark price surveillance and updates across all 6 material categories
+  - Instant digital payout settlement and intake receipt generator
+- **Admin Console (`/admin`)**: Management dashboard with:
+  - Diverted weight tracking and category volume analytics
+  - Recycler registry with status toggles (`AUTHORIZED`, `PENDING`, `REVOKED`)
+  - Benchmark price management across all 6 material categories
 
 ---
 
@@ -42,7 +42,7 @@
 |---|---|---|
 | **Collector** | `/collector/login` | **Phone**: `9876543210` (or any 10-digit number)<br>**OTP**: `4912` |
 | **Recycler** | `/recycler/login` | **Email**: `greenloop@demo.com`<br>**Password**: `demo1234` |
-| **Government Admin** | `/admin/login` | **Email**: `admin@demo.com`<br>**Password**: `admin1234` |
+| **Admin** | `/admin/login` | **Email**: `admin@demo.com`<br>**Password**: `admin1234` |
 
 ---
 
@@ -81,4 +81,4 @@ RecyConnect is pre-configured for one-click deployment to Vercel:
 
 ## 📄 License
 
-MIT License. Designed for National E-Waste Circularity.
+MIT License.

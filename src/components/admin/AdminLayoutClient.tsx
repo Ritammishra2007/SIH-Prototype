@@ -20,7 +20,7 @@ export function AdminLayoutClient({ children }: { children: React.ReactNode }) {
       <div className="md:hidden bg-white border-b border-slate-200 p-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <ShieldCheck className="w-5 h-5 text-blue-600" />
-          <span className="font-bold text-slate-900">CPCB Oversight</span>
+          <span className="font-bold text-slate-900">Admin</span>
         </div>
         <button
           type="button"
@@ -48,21 +48,6 @@ export function AdminLayoutClient({ children }: { children: React.ReactNode }) {
 
       {/* Main Content Workspace */}
       <main className="flex-1 flex flex-col min-w-0 overflow-y-auto min-h-screen bg-slate-50">
-        {/* Desktop Top Header Bar */}
-        <header className="hidden md:flex items-center justify-between px-8 py-4 border-b border-slate-200 bg-white/80 backdrop-blur-sm sticky top-0 z-30">
-          <div className="flex items-center gap-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse" />
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-              Central Pollution Control Board • Ministry of Environment, Forest and Climate Change
-            </span>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <span className="text-xs px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 font-semibold">
-              E-Waste (Management) Rules Surveillance
-            </span>
-          </div>
-        </header>
 
         {/* Inner Content Area */}
         <div className="p-4 md:p-8 max-w-6xl w-full mx-auto space-y-6">

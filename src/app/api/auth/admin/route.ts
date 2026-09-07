@@ -29,7 +29,7 @@ export async function POST(request: Request) {
           role: "ADMIN",
           userId: "admin-demo-default",
           email: "admin@demo.com",
-          name: "CPCB Officer (Delhi Region)",
+          name: "Admin",
         });
         return NextResponse.json({
           success: true,

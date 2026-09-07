@@ -29,8 +29,8 @@ export function AdminSidebar() {
     },
     {
       href: "/admin/prices",
-      label: "Price Surveillance",
-      description: "Mandi vs formal spreads",
+      label: "Prices",
+      description: "Category rates & trends",
       icon: TrendingUp,
     },
   ];
@@ -38,34 +38,22 @@ export function AdminSidebar() {
   return (
     <aside className="w-64 bg-slate-900 border-r border-slate-800 flex flex-col justify-between shrink-0 select-none text-white">
       <div>
-        {/* Regulator Header */}
+        {/* Header */}
         <div className="p-5 border-b border-slate-800">
           <div className="flex items-center gap-2.5">
             <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shrink-0 shadow-md shadow-blue-500/20">
               <ShieldCheck className="w-6 h-6" />
             </div>
             <div>
-              <div className="flex items-center gap-1.5">
-                <span className="font-bold text-white text-base leading-none">
-                  RecyConnect
-                </span>
-                <span className="text-[9px] px-1.5 py-0.2 rounded bg-blue-500/20 text-blue-400 font-mono font-bold border border-blue-500/30">
-                  CPCB
-                </span>
-              </div>
-              <p className="text-[10px] text-slate-400 mt-1 font-medium">
-                National E-Waste Oversight
-              </p>
+              <span className="font-bold text-white text-base leading-none">
+                RecyConnect
+              </span>
             </div>
           </div>
         </div>
 
         {/* Navigation Items */}
         <nav className="p-3 space-y-1.5">
-          <span className="text-[10px] font-semibold text-slate-400 uppercase tracking-wider px-3 mb-1 block">
-            Surveillance Console
-          </span>
-
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = pathname === item.href;
@@ -108,15 +96,12 @@ export function AdminSidebar() {
         <div className="flex items-center justify-between">
           <div>
             <span className="text-xs font-bold text-white block">
-              CPCB Officer
+              Admin
             </span>
             <span className="text-[10px] text-slate-400 font-mono">
               admin@demo.com
             </span>
           </div>
-          <span className="text-[9px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold border border-emerald-500/30">
-            CENTRAL
-          </span>
         </div>
 
         <LogoutButton className="w-full py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium border border-slate-700 transition active:scale-95 flex items-center justify-center gap-1.5" />

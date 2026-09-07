@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "RecyConnect | E-Waste Value & Traceability",
-  description: "Digital platform bridging informal scrap collectors with authorized recyclers under CPCB oversight",
+  description: "Digital platform bridging informal scrap collectors with authorized recyclers",
 };
 
 export const viewport: Viewport = {

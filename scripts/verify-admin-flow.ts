@@ -27,7 +27,7 @@ async function testAdminFlow() {
 
   // 2. Test Recycler Creation with PENDING status by default
   console.log("\n🏭 2. Testing Add Recycler (Default PENDING Status):");
-  const testRegNum = "CPCB/TEST-REG/2026";
+  const testRegNum = "REG/TEST-2026";
 
   // Clean up if already exists
   await prisma.recycler.deleteMany({ where: { registrationNumber: testRegNum } });

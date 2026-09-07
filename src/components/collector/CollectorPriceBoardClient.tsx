@@ -17,7 +17,6 @@ import {
   TrendingDown,
   Minus,
   ArrowRight,
-  ShieldCheck,
   Sparkles,
 } from "lucide-react";
 
@@ -182,11 +181,7 @@ export function CollectorPriceBoardClient({
             </p>
           </div>
 
-          <div className="mt-3 pt-2.5 border-t border-white/20 flex items-center justify-between text-xs font-semibold text-white">
-            <span className="flex items-center gap-1 text-emerald-300">
-              <ShieldCheck className="w-4 h-4" />
-              <span>CPCB Mandated Spreads</span>
-            </span>
+          <div className="mt-3 pt-2.5 border-t border-white/20 flex items-center justify-end text-xs font-semibold text-white">
             <Link
               href="/collector/new-lot"
               className="px-3 py-1 rounded-lg bg-white text-blue-800 font-bold hover:bg-blue-50 transition active:scale-95 text-xs shadow-sm"
