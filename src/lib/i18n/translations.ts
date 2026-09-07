@@ -42,10 +42,14 @@ export const translations = {
     noActiveLots: "No active lots. Tap above to create your first lot.",
 
     // Safety Tips
-    safetyTip1: "Never burn cables or open battery casings by hand. Toxic fumes harm lungs.",
-    safetyTip2: "Wear heavy leather gloves when handling shattered CRT glass & sharp chassis.",
-    safetyTip3: "Keep lithium battery packs in dry, shaded containers away from water & heat.",
-    safetyTip4: "Separate copper cables from mixed plastic for the highest payout multiplier.",
+    safetyTipTitle1: "Do Not Burn Cables",
+    safetyTip1: "Never burn PVC cables or wires to strip copper. Toxic black fumes damage lungs.",
+    safetyTipTitle2: "Do Not Open Batteries by Hand",
+    safetyTip2: "Never hammer or pry open battery casings. Acid splash causes severe chemical burns.",
+    safetyTipTitle3: "Wear Heavy Work Gloves",
+    safetyTip3: "Always wear thick leather gloves when handling shattered CRT glass and jagged scrap chassis.",
+    safetyTipTitle4: "Keep Lithium Batteries Dry",
+    safetyTip4: "Store lithium batteries in shaded, dry containers away from rain, puddles, and direct heat.",
 
     // Material Categories
     cat_PCB: "Circuit Boards (PCB)",
@@ -239,10 +243,14 @@ export const translations = {
     noActiveLots: "कोई सक्रिय लॉट नहीं है। नया लॉट जोड़ने के लिए ऊपर टैप करें।",
 
     // Safety Tips
-    safetyTip1: "केबलों को कभी न जलाएं और बैटरियों को हाथ से न खोलें। जहरीला धुआं फेफड़ों को नुकसान पहुंचाता है।",
-    safetyTip2: "टूटे हुए सीआरटी मॉनिटर और नुकीले स्क्रैप को छूते समय मोटे चमड़े के दस्ताने पहनें।",
-    safetyTip3: "लिथियम बैटरी को पानी और तेज धूप से दूर सूखी और ठंडी जगह पर रखें।",
-    safetyTip4: "ज्यादा दाम पाने के लिए तांबे के तार को प्लास्टिक से अलग करके बेचें।",
+    safetyTipTitle1: "केबल कभी न जलाएं",
+    safetyTip1: "तांबा निकालने के लिए तारों को कभी न जलाएं। जहरीला काला धुआं फेफड़ों को भारी नुकसान पहुंचाता है।",
+    safetyTipTitle2: "बैटरी हाथ से न खोलें",
+    safetyTip2: "बैटरी को हथौड़े या पेचकस से कभी न तोड़ें। एसिड रिसाव से हाथ जलने का गंभीर खतरा होता है।",
+    safetyTipTitle3: "मोटे दस्ताने पहनें",
+    safetyTip3: "टूटे हुए सीआरटी कांच और नुकीले धातु के स्क्रैप को उठाते समय हमेशा मोटे चमड़े के दस्ताने पहनें।",
+    safetyTipTitle4: "बैटरी को सूखा रखें",
+    safetyTip4: "लिथियम बैटरी को बारिश के पानी और सीधी धूप से दूर किसी सूखी और ठंडी जगह पर रखें।",
 
     // Material Categories
     cat_PCB: "सर्किट बोर्ड (PCB)",
@@ -436,10 +444,14 @@ export const translations = {
     noActiveLots: "कोणताही सक्रिय लॉट नाही. नवीन लॉट नोंदवण्यासाठी वरील बटण दाबा.",
 
     // Safety Tips
-    safetyTip1: "केबल्स कधीही जाळू नका किंवा बॅटरी हाताने उघडू नका. विषारी धूर फुफ्फुसांना हानी पोहोचवतो.",
-    safetyTip2: "तुटलेल्या सीआरटी काच व तीक्ष्ण स्क्रॅप हाताळताना जाड चामड्याचे हातमोजे वापरा.",
-    safetyTip3: "लिथियम बॅटरी पाण्याच्या संपर्कापासून दूर, सावलीत व कोरड्या जागेत ठेवा.",
-    safetyTip4: "जास्त दर मिळवण्यासाठी तांब्याची वायर प्लास्टिकपासून वेगळी करा.",
+    safetyTipTitle1: "केबल कधीही जाळू नका",
+    safetyTip1: "तांबे काढण्यासाठी वायर कधीही जाळू नका. विषारी काळा धूर फुफ्फुसांना गंभीर इजा पोहोचवतो.",
+    safetyTipTitle2: "बॅटरी हाताने उघडू नका",
+    safetyTip2: "बॅटरी हातोड्याने किंवा पेचकसने तोडू नका. आम्ल (ॲसिड) गळतीमुळे हात भाजण्याचा मोठा धोका असतो.",
+    safetyTipTitle3: "जाड हातमोजे वापरा",
+    safetyTip3: "तुटलेली काच व टोकदार भंगार हाताळताना नेहमी जाड चामड्याचे सुरक्षा हातमोजे वापरा.",
+    safetyTipTitle4: "बॅटरी कोरड्या जागेत ठेवा",
+    safetyTip4: "लिथियम बॅटरी पावसाच्या पाण्यापासून व उन्हापासून दूर कोरड्या व सावलीच्या जागी साठवा.",
 
     // Material Categories
     cat_PCB: "सर्किट बोर्ड (PCB)",
